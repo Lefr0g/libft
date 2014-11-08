@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:02:20 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/08 17:28:05 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/08 19:04:03 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int	main(void)
 {
 	char	*src;
 	char	*dst;
+	size_t	len;
 
 	src = (char*)malloc(sizeof(char) * 25);
 	dst = (char*)malloc(sizeof(char) * 25);
+	len = 5;
 	printf("\n********** TEST - DEBUT DU TEST **********\n");
 	printf("\n    ***** TEST 1 - ft_putchar.c (2) : *****\n");
 	ft_putchar('A');
@@ -70,6 +72,11 @@ int	main(void)
 	src = "Let's get drunk";
 	printf("\nString to be copied : %s\n", src);
 	dst = ft_strcpy(dst, src);
+	printf("\nCopied string : %s\n", dst);
+	printf("\n    ***** TEST 12 - ft_strncpy.c (2) : *****\n");
+	src = "I can eat pasta";
+	printf("\nString to be copied : %s, on %zd characters only\n", src, len);
+	dst = ft_strncpy(dst, src, len);
 	printf("\nCopied string : %s\n", dst);
 	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	return (0);

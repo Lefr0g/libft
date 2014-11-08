@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/08 17:04:16 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/08 18:56:09 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void		ft_putendl_fd(char const *s, int fd);
 size_t		ft_strlen(const char *s);
 char		*ft_strdup(const char *s1);
 char		*ft_strcpy(char *dst, const char *src);
+char		*ft_strncpy(char *dst, const char *src, size_t n);
 
 #endif
