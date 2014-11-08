@@ -1,0 +1,4 @@
+2
+This is an error, written on fd 2.
+-987654321This should be a line on the error output
+And this should be another line on the same output
