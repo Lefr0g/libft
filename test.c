@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:02:20 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/08 16:43:13 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/08 17:28:05 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 
 int	main(void)
 {
+	char	*src;
+	char	*dst;
+
+	src = (char*)malloc(sizeof(char) * 25);
+	dst = (char*)malloc(sizeof(char) * 25);
 	printf("\n********** TEST - DEBUT DU TEST **********\n");
 	printf("\n    ***** TEST 1 - ft_putchar.c (2) : *****\n");
 	ft_putchar('A');
@@ -57,9 +62,15 @@ int	main(void)
 	printf("\n    ***** TEST 9 - ft_strlen.c (2) : *****\n");
 	printf("The char string is : Hello World!\n");
 	printf("It is %zd character(s) long\n", ft_strlen("Hello World!"));
-	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	printf("\n    ***** TEST 10 - ft_strdup.c (2) : *****\n");
-	printf("\nString to be copied : Brian is in the kitchen.\n");
-	printf("\nCopied string : %s\n", ft_strdup("Brian is in the kitchen."));
+	src = "FeelsGoodMan Yeah!";
+	printf("\nString to be copied : %s\n", src);
+	printf("\nCopied string : %s\n", ft_strdup(src));
+	printf("\n    ***** TEST 11 - ft_strcpy.c (2) : *****\n");
+	src = "Let's get drunk";
+	printf("\nString to be copied : %s\n", src);
+	dst = ft_strcpy(dst, src);
+	printf("\nCopied string : %s\n", dst);
+	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	return (0);
 }
