@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:02:20 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/05 19:34:39 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/08 16:43:13 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int	main(void)
 	printf("The char string is : Hello World!\n");
 	printf("It is %zd character(s) long\n", ft_strlen("Hello World!"));
 	printf("\n*********** TEST - FIN DU TEST ***********\n");
-	
+	printf("\n    ***** TEST 10 - ft_strdup.c (2) : *****\n");
+	printf("\nString to be copied : Brian is in the kitchen.\n");
+	printf("\nCopied string : %s\n", ft_strdup("Brian is in the kitchen."));
 	return (0);
 }
