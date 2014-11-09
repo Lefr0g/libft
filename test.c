@@ -84,6 +84,12 @@ int	main(void)
 	printf("\nsrc: %s will be copied at the end of dest:%s\n", src, dst);
 	dst = ft_strcat(dst, src);
 	printf("\nThe resulting dest string is : %s\n", dst);
+	printf("\n    ***** TEST 14 - ft_strcat.c (2) : *****\n");
+	strcpy(src, "This is a test, don't worry");
+	strcpy(dst, "PeekaBoo Trololo");
+	printf("\n%d characters of src: << %s >> will be copied at the end of dest: << %s >>\n", len, src, dst);
+	dst = ft_strncat(dst, src, len);
+	printf("\nThe resulting dest string is : %s\n", dst);
 	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	return (0);
 }
