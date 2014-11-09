@@ -78,6 +78,12 @@ int	main(void)
 	printf("\nString to be copied : %s, on %zd characters only\n", src, len);
 	dst = ft_strncpy(dst, src, len);
 	printf("\nCopied string : %s\n", dst);
+	printf("\n    ***** TEST 13 - ft_strcat.c (2) : *****\n");
+	src = "azer";
+	dst = "tyuiop";
+	printf("\n%s will be copied at the end of %s\n", dst, src);
+	dst = ft_strcat(dst, src);
+	printf("\nThe resulting dest string is : %s\n", dst);
 	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	return (0);
 }
