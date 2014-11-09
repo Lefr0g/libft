@@ -16,7 +16,7 @@ FLAGS = -Wall -Werror -Wextra
 
 SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 	   ft_putnbr_fd.c ft_putendl.c ft_putendl_fd.c ft_strlen.c ft_strdup.c \
-	   ft_strcpy.c ft_strncpy.c ft_strcat.c
+	   ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c
 
 OBJECTS = $(subst .c,.o,$(SRCS))
 
