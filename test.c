@@ -22,7 +22,7 @@ int	main(void)
 
 	src = (char*)malloc(sizeof(char) * 25);
 	dst = (char*)malloc(sizeof(char) * 25);
-	len = 5;
+	len = 3;
 	printf("\n********** TEST - DEBUT DU TEST **********\n");
 	printf("\n    ***** TEST 1 - ft_putchar.c (2) : *****\n");
 	ft_putchar('A');
@@ -84,12 +84,16 @@ int	main(void)
 	printf("\nsrc: %s will be copied at the end of dest:%s\n", src, dst);
 	dst = ft_strcat(dst, src);
 	printf("\nThe resulting dest string is : %s\n", dst);
-	printf("\n    ***** TEST 14 - ft_strcat.c (2) : *****\n");
+	printf("\n    ***** TEST 14 - ft_strcat.c (3) : *****\n");
 	strcpy(src, "This is a test, don't worry");
 	strcpy(dst, "PeekaBoo Trololo");
-	printf("\n%d characters of src: << %s >> will be copied at the end of dest: << %s >>\n", len, src, dst);
+	printf("\n%zd characters of src: << %s >> will be copied at the end of dest: << %s >>\n", len, src, dst);
 	dst = ft_strncat(dst, src, len);
-	printf("\nThe resulting dest string is : %s\n", dst);
+	printf("\nWith ft_strncat, the resulting dest string is : %s\n", dst);
+	strcpy(src, "This is a test, don't worry");
+	strcpy(dst, "PeekaBoo Trololo");
+	dst = strncat(dst, src, len);
+	printf("\nWith strncat, the resulting dest string is : %s\n", dst);
 	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	return (0);
 }
