@@ -21,6 +21,9 @@ int	main(void)
 	int		indextest;
 	char	*src;
 	char	*dst;
+	char	*haystack;
+	char	*needle;
+	char	*strstrresult;
 	size_t	len;
 	int		lower;
 	int		upper;
@@ -31,8 +34,11 @@ int	main(void)
 
 	i = 0;
 	indextest = 0;
-	src = (char*)malloc(sizeof(char) * 25);
-	dst = (char*)malloc(sizeof(char) * 25);
+	src = (char*)malloc(sizeof(char) * 50);
+	dst = (char*)malloc(sizeof(char) * 50);
+	haystack = (char*)malloc(sizeof(char) * 50);
+	needle = (char*)malloc(sizeof(char) * 50);
+	strstrresult = (char*)malloc(sizeof(char) * 50);
 	len = 3;
 	lower = 'a';
 	upper = 'Z';
@@ -157,6 +163,16 @@ int	main(void)
 	printf("ft_strrchr : Result:  << %s >>\n", ft_strrchr(src, i));
 	printf("\nstrrchr : Looking for << %c >> within << %s >>\n", i, src);
 	printf("strrchr : Result:  << %s >>\n", strrchr(src, i));
+	indextest++;
+	printf("\n    ***** TEST %d - ft_strstr.c (4) : *****\n", indextest);
+	strcpy(haystack, "This is the haystack, follow the white rabbit");
+	strcpy(needle, "the");
+	printf("\nft_strstr : Looking for << %s >> within << %s >>\n", needle, haystack);
+	strstrresult = ft_strstr(haystack, needle);
+	printf("ft_strstr : Result : << %s >> at address << %p >>\n", strstrresult, strstrresult);
+	printf("\nstrstr : Looking for << %s >> within << %s >>\n", needle, haystack);
+	strstrresult = strstr(haystack, needle);
+	printf("strstr : Result : << %s >> at address << %p >>\n", strstrresult, strstrresult);
 	indextest++;
 	printf("\n    ***** TEST %d - ft_isalpha.c (6) : *****\n", indextest);
 	printf("\nChecking << %c >> with ft_isalpha : %d\n", lower, ft_isalpha(lower));
