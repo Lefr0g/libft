@@ -5,11 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created:                                          #+#    #+#             */
-/*   Updated:                                         ###   ########.fr       */
+/*   Created: 2014/11/11 13:40:01 by amulin            #+#    #+#             */
+/*   Updated: 2014/11/11 13:40:04 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//
+
 #include "libft.h"
 
 char	*ft_strcat(char *dest, const char *src)
