@@ -18,6 +18,7 @@
 int	main(void)
 {
 	int		i;
+	int		c;
 	int		indextest;
 	char	*src;
 	char	*dst;
@@ -33,6 +34,7 @@ int	main(void)
 	char	*charStringMixed;
 
 	i = 0;
+	c = 0;
 	indextest = 0;
 	src = (char*)malloc(sizeof(char) * 50);
 	dst = (char*)malloc(sizeof(char) * 50);
@@ -214,6 +216,14 @@ int	main(void)
 	printf("\nft_strncmp : result is %d\n", ft_strncmp(haystack, needle, len));
 	printf("\nstrncmp : result is %d\n", strncmp(haystack, needle, len));
 	indextest++;
+	printf("\n    ***** TEST %d - ft_atoi.c (4) : *****\n", indextest);
+	strcpy(src, "1234567890");
+	printf("\nft_atoi : Converting string << %s >> into int. Result = %d\n", src, ft_atoi(src));
+	printf("\natoi : Converting string << %s >> into int. Result = %d\n", src, atoi(src));
+	strcpy(src, "-1234567890");
+	printf("\nft_atoi : Converting string << %s >> into int. Result = %d\n", src, ft_atoi(src));
+	printf("\natoi : Converting string << %s >> into int. Result = %d\n", src, atoi(src));
+	indextest++;
 	printf("\n    ***** TEST %d - ft_isalpha.c (6) : *****\n", indextest);
 	printf("\nChecking << %c >> with ft_isalpha : %d\n", lower, ft_isalpha(lower));
 	printf("\nChecking << %c >> with isalpha : %d\n", lower, isalpha(lower));
@@ -317,6 +327,36 @@ int	main(void)
 	}
 	i = 0;
 	printf(" >>\n");
+	indextest++;
+
+
+	printf("\n    ***** TEST %d - ft_memset.c (2) : *****\n", indextest);
+	i = 0;
+	c = 65;
+	len = 5;
+	while (i <= 20)
+	{
+		intStringMixed[i] = i; 
+		i++;
+	}
+	i = 0;
+	printf("\nft_memset : << %zd >> bytes of int string << ", len);
+	while (i <= 20)
+	{
+		ft_putnbr(intStringMixed[i]);
+		i++;
+	}
+	i = 0;
+	printf(" >> will be filled with %c\n", c);
+	ft_memset(intStringMixed, c, len);
+	printf("\n ft_memset : Result is << ");
+	while (i <= 20)
+	{
+		ft_putnbr(intStringMixed[i]);
+		i++;
+	}
+	i = 0;
+
 	indextest++;
 	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	return (0);
