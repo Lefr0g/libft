@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:02:20 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/11 17:57:23 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/14 17:09:04 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -330,11 +330,11 @@ int	main(void)
 	indextest++;
 
 
-	printf("\n    ***** TEST %d - ft_memset.c (2) : *****\n", indextest);
+	printf("\n    ***** TEST %d - ft_memset.c (4) : *****\n", indextest);
 	i = 0;
 	c = 65;
 	len = 5;
-	while (i <= 20)
+/*	while (i <= 20)
 	{
 		intStringMixed[i] = i; 
 		i++;
@@ -357,6 +357,121 @@ int	main(void)
 	}
 	i = 0;
 
+	while (i <= 20)
+	{
+		intStringMixed[i] = i; 
+		i++;
+	}
+	i = 0;
+	printf("\nmemset : << %zd >> bytes of int string << ", len);
+	while (i <= 20)
+	{
+		ft_putnbr(intStringMixed[i]);
+		i++;
+	}
+	i = 0;
+	printf(" >> will be filled with %c\n", c);
+	memset(intStringMixed, c, len);
+	printf("\n ft_memset : Result is << ");
+	while (i <= 20)
+	{
+		ft_putnbr(intStringMixed[i]);
+		i++;
+	}
+	i = 0;
+*/
+	strcpy(charStringMixed, "ABCDEFGHIJKL");
+	printf("\nft_memset : << %zd >> bytes of char string << %s >> will be filled with << %c >>\n", len, charStringMixed, c);
+	ft_memset(charStringMixed, c, len);
+	printf("\nft_memset : Result is << %s >>\n", charStringMixed);
+
+	strcpy(charStringMixed, "ABCDEFGHIJKL");
+	printf("\nmemset : << %zd >> bytes of char string << %s >> will be filled with << %c >>\n", len, charStringMixed, c);
+	memset(charStringMixed, c, len);
+	printf("\nmemset : Result is << %s >>\n", charStringMixed);
+	indextest++;
+
+	printf("\n    ***** TEST %d - ft_bzero.c (4) : *****\n", indextest);
+	len = 5;
+	strcpy(charStringMixed, "ABCDEFGHIJKL");
+	printf("\nft_bzero : << %zd >> bytes of char string << %s >> will be zeroed\n", len, charStringMixed);
+	ft_bzero(charStringMixed, len);
+	printf("\nft_bzero : Result is << %s >>\n", charStringMixed);
+	strcpy(charStringMixed, "ABCDEFGHIJKL");
+	printf("\nbzero : << %zd >> bytes of char string << %s >> will be zeroed\n", len, charStringMixed);
+	bzero(charStringMixed, len);
+	printf("\nbzero : Result is << %s >>\n", charStringMixed);
+	indextest++;
+
+	printf("\n    ***** TEST %d - ft_memcpy.c (4) : *****\n", indextest);
+	len = 5;
+	strcpy(src, "ABCDEFGHIJKL");
+	strcpy(dst, "qwertyuiop");
+	printf("\nft_memcpy : << %zd >> bytes of src char string << %s >>  will be copied to dst char string << %s >> (address << %p >>)\n", len, src, dst, dst);
+	charStringMixed = ft_memcpy(dst, src, len);
+	printf("\nft_memcpy : Result dst string is << %s >>, value << %p >>\n", dst, charStringMixed);
+	strcpy(src, "ABCDEFGHIJKL");
+	strcpy(dst, "qwertyuiop");
+	printf("\nmemcpy : << %zd >> bytes of src char string << %s >> will be copied to dst char string << %s >> (address << %p >>)\n", len, src, dst, dst);
+	charStringMixed = memcpy(dst, src, len);
+	printf("\nmemcpy : Result dst string is << %s >>, value << %p >>\n", dst, charStringMixed);
+	indextest++;
+	printf("\n    ***** TEST %d - ft_memccpy.c (4) : *****\n", indextest);
+	len = 5;
+	c = 'C';
+	strcpy(src, "ABCDEFGHIJKL");
+	strcpy(dst, "qwertyuiop");
+	printf("\nft_memccpy : << %zd >> bytes of src char string << %s >>  will be copied to dst char string << %s >> (address << %p >>)\nForbidden char is << %c >>\n", len, src, dst, dst, c);
+	charStringMixed = ft_memccpy(dst, src, c, len);
+	printf("\nft_memccpy : Result dst string is << %s >>, value << %p >>\n", dst, charStringMixed);
+	strcpy(src, "ABCDEFGHIJKL");
+	strcpy(dst, "qwertyuiop");
+	printf("\nmemccpy : << %zd >> bytes of src char string << %s >> will be copied to dst char string << %s >> (address << %p >>)\nForbidden char is << %c >>\n", len, src, dst, dst, c);
+	charStringMixed = memccpy(dst, src, c, len);
+	printf("\nmemccpy : Result dst string is << %s >>, value << %p >>\n", dst, charStringMixed);
+	
+	indextest++;
+	printf("\n    ***** TEST %d - ft_memmove.c (4) : *****\n", indextest);
+	strcpy(src, "ABCDEFGHIJKL");
+	len = 4;
+	printf("\nft_memmove : Moving << %s >> to << %s >>\n, on << %zd >> bytes\n", src, &src[2], len);
+	ft_memmove(&src[2], src, len);
+	printf("\nft_memmove : Result is << %s >>\n", &src[2]);
+	strcpy(src, "ABCDEFGHIJKL");
+	len = 4;
+	printf("\nmemmove : Moving << %s >> to << %s >>\n, on << %zd >> bytes\n", src, &src[2], len);
+	memmove(&src[2], src, len);
+	printf("\nmemmove : Result is << %s >>\n", &src[2]);
+	indextest++;
+printf("\n    ***** TEST %d - ft_memchr.c (8) : *****\n", indextest);
+	strcpy(src, "ABCDEFGHIJKL");
+	len = 11;
+	c = 'L';
+	printf("\nft_memchr : Looking for << %c >> within << %s >>, size is << %zd >> bytes\n", c, src, len);
+	printf("\nft_memchr : Result is << %s >>\n", (char*)ft_memchr(src, c, len));
+	printf("\nmemchr : Looking for << %c >> within << %s >>, size is << %zd >> bytes\n", c, src, len);
+	printf("\nmemchr : Result is << %s >>\n", (char*)memchr(src, c, len));
+	len = 12;
+	c = 'C';
+	printf("\nft_memchr : Looking for << %c >> within << %s >>, size is << %zd >> bytes\n", c, src, len);
+	printf("\nft_memchr : Result is << %s >>\n", (char*)ft_memchr(src, c, len));
+	printf("\nmemchr : Looking for << %c >> within << %s >>, size is << %zd >> bytes\n", c, src, len);
+	printf("\nmemchr : Result is << %s >>\n", (char*)memchr(src, c, len));
+
+	indextest++;
+printf("\n    ***** TEST %d - ft_memcmp.c (8) : *****\n", indextest);
+	strcpy(src, "ABCDEFGHIJKL");
+	strcpy(dst, "ABCDEFGHIJKZ");
+	len = 11;
+	printf("\nft_memcmp : Comparing << %s >> against << %s >> on << %zd >> bytes\n", src, dst, len);
+	printf("\nft_memcmp : Result is << %d >>\n", memcmp(src, dst, len));
+	printf("\nmemcmp : Comparing << %s >> against << %s >> on << %zd >> bytes\n", src, dst, len);
+	printf("\nmemcmp : Result is << %d >>\n", memcmp(src, dst, len));
+	len = 12;
+	printf("\nft_memcmp : Comparing << %s >> against << %s >> on << %zd >> bytes\n", src, dst, len);
+	printf("\nft_memcmp : Result is << %d >>\n", memcmp(src, dst, len));
+	printf("\nmemcmp : Comparing << %s >> against << %s >> on << %zd >> bytes\n", src, dst, len);
+	printf("\nmemcmp : Result is << %d >>\n", memcmp(src, dst, len));
 	indextest++;
 	printf("\n*********** TEST - FIN DU TEST ***********\n");
 	return (0);
