@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:40:51 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/14 17:37:13 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/19 18:58:52 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	size_t	i;
+	size_t	lendst;
+	size_t	lensrc;
+
+	i = 0;
+	lendst = ft_strlen(dst);
+	lensrc = ft_strlen(src);
+	if (lendst > size)
+		return (size);
+	while (src[i] != '\0' || lendst + i < size)
+	{
+		dst[lendst + i] = src[i];
+		i++;
+	}
+	dst[lendst + i] = '\0';
+	return (lendst + lensrc);
+
+/*
 	size_t	i;
 	size_t	enddst;
 
@@ -26,4 +44,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	dst[enddst + i] = '\0';
 	return (enddst + ft_strlen(src));
+*/
 }
