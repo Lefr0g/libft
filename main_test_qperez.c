@@ -6,7 +6,7 @@
 /*   By: student@42 <@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 14:43:06 by student@42        #+#    #+#             */
-/*   Updated: 2014/11/19 09:16:52 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/19 17:20:09 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
  *	https://github.com/gabtoubl
  *	https://github.com/soyel
  *	https://github.com/stherman
+ *	https://github.com/jplot
  *
  */
 
@@ -28,6 +29,8 @@
 ** HardCore + strtrim + Fixes: mfontain
 ** Fixes strsplit, strequ: gabtoubl
 ** Fixes strsplit, strjoin, strsub, strtrim, itoa, strequ, strnequ: stherman
+** Crash handle : ele-goug
+** Detailed error messages : jpucelle
 **
 ** Any segfault ? Probably caused by a NULL test. ex : ft_memset(NULL, 0, 0);
 */
@@ -38,6 +41,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
+#include <unistd.h>
+#include <signal.h>
 
 #include "libft.h" 
 /* compile with -I./ */
@@ -117,11 +122,12 @@ void				uf_add_test(t_test *test, const char *name, int (*funct)(void))
 	i = i + 1;
 }
 
-
-int					main(int argc, const char **argv)
+int					main(void)
 {
 	int				i;
 	t_test			test[D_TEST];
+	int				status;
+	pid_t			pid;
 
 	srand(time(NULL));
 	printf("[\033[33mYellow Tests\033[0m] are Hardcore\n");
@@ -191,7 +197,8 @@ int					main(int argc, const char **argv)
 	D_ADD_HCTEST(toupper);
 #define	D_TOLOWER
 	D_ADD_HCTEST(tolower);
-/*#define	D_MEMALLOC_AND_DEL
+/*
+#define	D_MEMALLOC_AND_DEL
 	D_ADD_TEST(memalloc_and_del);
 #define	D_STRNEW
 	D_ADD_TEST(strnew);
@@ -237,14 +244,38 @@ int					main(int argc, const char **argv)
 	while (test[i].set == true)
 	{
 		printf("Test [%s] : ", test[i].name);
-		if (test[i].funct() == 0)
-			printf("\033[31mFAIL\033[0m\n");
+		fflush(stdout);
+		if ((pid = fork()) == 0)
+		{
+			if (test[i].funct() == 0)
+				printf("\033[31mFAIL\033[0m\n");
+			else
+				printf("\033[32mOK\033[0m\n");
+			exit(0);
+		}
+		if (pid == -1)
+			printf("\033[33mUNABLE TO FORK\033[0m\n");
 		else
-			printf("\033[32mOK\033[0m\n");
+		{
+			if (waitpid(pid, &status, 0) != -1)
+			{
+				if (WIFSIGNALED(status))
+				{
+					if (WTERMSIG(status) == SIGSEGV)
+						printf("\033[33mSegmentation Fault\033[0m\n");
+					else if (WTERMSIG(status) == SIGEMT)
+						printf("\033[33mBus Error\033[0m\n");
+					else if (WTERMSIG(status) == SIGILL)
+						printf("\033[33mIllegal Instruction\033[0m\n");
+					else
+						printf("\033[33mThe processus receive the signal %d\033[0m\n", WTERMSIG(status));
+				}
+			}
+			else
+				perror("Waitpid");
+		}
 		i = i + 1;
 	}
-	(void)argc;
-	(void)argv;
 	return (0);
 }
 
@@ -1132,6 +1163,7 @@ int				uf_test_atoi(void)
 			j++;
 		}
 		str[11] = 0;
+//		printf("\n %s", str);
 		if (atoi(str) != ft_atoi(str))
 			D_ERROR
 		i++;
@@ -1263,7 +1295,7 @@ int				uf_test_strnstr(void)
 		D_ERROR;
 	if (strnstr(str, "gen", 2) != ft_strnstr(str, "gen", 2))
 		D_ERROR;
-	if (strnstr(str, "w", 0) != ft_strnstr(str, "w", 0))
+	if (strnstr(str, "w", 14) != ft_strnstr(str, "w", 14))
 		D_ERROR;
 	if (strnstr(str, "", 3) != ft_strnstr(str, "", 3))
 		D_ERROR;

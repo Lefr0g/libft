@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 12:41:33 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/19 16:00:06 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/19 15:52:30 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,39 @@
 
 static char	ft_atoi_nondigit(char *negflag, char *started, const char *nptr)
 {
+	if ((ft_isprint(nptr[0]) && !ft_isdigit(nptr[0]) && nptr[0] != '-'
+			&& nptr[0] != ' ')
+		|| (!ft_isdigit(nptr[1]) && *started == 1) || nptr[0] == '-')
+	{
+		if (nptr[0] == '-' && *started == 0 && ft_isdigit(nptr[1]))
+			*negflag = -1;
+		else if (nptr[0] == '+' && *started == 0)
+			*started = 1;
+		else
+			return (1);
+	}
+	return (0);
+/*
 	if (nptr[0] == '-')
 	{
 		if (*started == 0 && ft_isdigit(nptr[1]))
 			*negflag = -1;
 		else
-			return (1);
+			return (1) ;
+		if (!ft_isdigit(nptr[1]) && *started == 1)
+			return (1) ;
 	}
-	if (!ft_isdigit(nptr[1]) && *started == 1)
-		return (1);
 	if (nptr[0] == '+')
 	{
 		if (*started == 0)
 			*started = 1;
 		else if (*started == 1)
-			return (1);
+			return (1) ;
 	}
-	if (ft_isprint(nptr[0]) && !ft_isdigit(nptr[0])
+	if (ft_isprint(nptr[0]) && !ft_isdigit(nptr[0]) 
 		&& nptr[0] != '-' && nptr[0] != ' ' && nptr[0] != '+')
-		return (1);
-	return (0);
+		return (1) ;
+*/
 }
 
 int			ft_atoi(const char *nptr)

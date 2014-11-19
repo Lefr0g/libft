@@ -8,13 +8,13 @@ make re
 sleep 1
 echo "\033[32m\n>>> PHASE 3 - Compilation du test...\033[00m"
 sleep 1
-gcc -Wall -Werror -Wextra main_test_big.c libft.a -o test.out
+gcc  main_test_qperez.c libft.a -o test_qperez.out
 ls -l *.out
 sleep 1
 echo "\033[32m\n>>> PHASE 4 - Test...\033[00m"
 sleep 1
-./test.out
-./test.out > /dev/null 2> error.log
+./test_qperez.out
+./test_qperez.out > /dev/null 2> error.log
 sleep 1
 echo "\033[32m\n>>> PHASE 5 - Test, sortie d'erreur...\n\033[00m"
 sleep 1

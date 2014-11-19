@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 16:21:07 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/11 17:34:56 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/19 16:55:32 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int			i;
+	size_t		i;
 	const char	*new;
 
 	i = 0;
 	new = (const char*)malloc(sizeof(s));
-	while (s[i] != '\0')
+	while (i <= ft_strlen(s))
 	{
-		if (s[i + 1] == c)
+		if (s[i] == c)
 		{
-			new = &s[i + 1];
+			new = &s[i];
 			return ((char*)new);
 		}
 		i++;
