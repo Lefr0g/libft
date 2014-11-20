@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/08 16:52:01 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/08 17:06:35 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/20 17:17:08 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ char	*ft_strcpy(char *dst, const char *src)
 	int i;
 	int lensrc;
 
-	i = 0;
-	lensrc = ft_strlen(src);
-	while (i < lensrc)
+	if (dst != NULL && src != NULL)
 	{
-		dst[i] = src[i];
-		i++;
+		i = 0;
+		lensrc = ft_strlen(src);
+		while (i < lensrc)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	dst[i] = '\0';
 	return (dst);
 }

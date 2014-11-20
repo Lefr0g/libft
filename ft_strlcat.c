@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 13:40:51 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/20 10:28:37 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/20 15:37:57 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	lendst = ft_strlen(dst);
 	lensrc = ft_strlen(src);
-	if (lendst >= size)
+	if (lendst > size)
 		return (size + lensrc);
 	while (src[i] != '\0' && lendst + i < size - 1)
 	{
