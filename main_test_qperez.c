@@ -6,7 +6,7 @@
 /*   By: student@42 <@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 14:43:06 by student@42        #+#    #+#             */
-/*   Updated: 2014/11/19 17:20:09 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/20 10:32:08 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1384,6 +1384,9 @@ int				uf_test_strlcat(void)
 	char		dest2[50] = {0};
 	size_t		i, j, k;
 
+//	printf("\n>> Init: dest = %s, dest2 = %s\n", dest, dest2);
+//	printf("\n>> Test 1: strlcat = %zd, ft_strlcat = %zd\n", strlcat(dest, "Hello", 4), ft_strlcat(dest2, "Hello", 4));
+//	printf("\n>> Test 1: dest = %s, dest2 = %s\n", dest, dest2);
 	if (strlcat(dest, "Hello ", 4) != ft_strlcat(dest2, "Hello ", 4))
 		D_ERROR
 	memset(dest, 0, sizeof(dest));
@@ -1392,8 +1395,11 @@ int				uf_test_strlcat(void)
 	k = ft_strlcat(dest2, "Hello ", 4);
 	if (strcmp(dest, dest2) != 0 || j != k)
 		D_ERROR
-	j = strlcat(dest, "Hello ", 1);
-	k = ft_strlcat(dest2, "Hello ", 1);
+//	printf("\n>> Init: dest = %s, dest2 = %s\n", dest, dest2);
+	j = strlcat(dest, "Yello ", 1);
+	k = ft_strlcat(dest2, "Yello ", 1);
+//	printf("\n>> Test 3: strlcat = %zd, ft_strlcat = %zd\n", j, k);
+//	printf("\n>> Test 3: dest = %s, dest2 = %s\n", dest, dest2);
 	if (strcmp(dest, dest2) != 0 || j != k)
 		D_ERROR
 	i = 0;
