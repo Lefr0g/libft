@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 12:42:59 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/20 15:24:28 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/22 18:57:42 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char *ft_strstr(const char *haystack, const char *needle)
 
 	i = 0;
 	j = 0;
-	if (haystack != NULL && needle != NULL)
+	if (haystack != NULL || needle != NULL)
 	{
 		if (haystack[i] == needle[j] && haystack[i] == 0)
 			return ("");
