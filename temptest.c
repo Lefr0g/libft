@@ -35,9 +35,14 @@ int	main(void)
 	printf("\n << //3253,-82, >>, atoi: %d, ft_atoi: %d\n", atoi("//3253,-82,"), ft_atoi("//3253,-83,"));
 	printf("\n << ++165+3'2* >>, atoi: %d, ft_atoi: %d\n", atoi("++165+3'2*"), ft_atoi("++165+3'2*"));
 	printf("\n << \n		 42 24 >>, atoi: %d, ft_atoi: %d\n", atoi("\n		42 24"), ft_atoi("\n		 42 24"));
-
-
-/*
+	printf("\n << \200123 >>, atoi: %d, ft_atoi: %d\n", atoi("\200123"), ft_atoi("\200123"));
+	printf("\n << 9223372036854775808 >>, atoi: %d, ft_atoi: %d\n", atoi("9223372036854775808"), ft_atoi("9223372036854775808"));
+	printf("\n << 2147483647 >>, atoi: %d, ft_atoi: %d\n", atoi("2147483647"), ft_atoi("2147483647"));
+	printf("\n << -2147483648 >>, atoi: %d, ft_atoi: %d\n", atoi("-2147483648"), ft_atoi("-2147483648"));
+	printf("\n << 2947483649 >>, atoi: %d, ft_atoi: %d\n", atoi("2947483649"), ft_atoi("2947483649"));
+	printf("\n << 94947483649 >>, atoi: %d, ft_atoi: %d\n", atoi("94947483649"), ft_atoi("94947483649"));
+	
+	/*
 	int	c;
 
 	c = -300;

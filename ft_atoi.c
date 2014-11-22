@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 12:41:33 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/20 18:12:30 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/22 18:53:29 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ static char	ft_atoi_nondigit(char *negflag, char *started, const char *nptr)
 		else if (*started == 1)
 			return (1);
 	}
-	if (ft_isprint(nptr[0]) && !ft_isdigit(nptr[0])
-		&& nptr[0] != '-' && nptr[0] != ' ' && nptr[0] != '+')
+	if (nptr[0] == ' ' && *started == 1)
+		return (1);
+	if (!ft_isascii(nptr[0]) || (ft_isprint(nptr[0]) && !ft_isdigit(nptr[0])
+		&& nptr[0] != '-' && nptr[0] != ' ' && nptr[0] != '+'))
 		return (1);
 	return (0);
 }
