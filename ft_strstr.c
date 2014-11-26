@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 12:42:59 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/22 18:57:42 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/26 14:54:51 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,24 @@ char *ft_strstr(const char *haystack, const char *needle)
 
 	i = 0;
 	j = 0;
-	if (haystack != NULL || needle != NULL)
+	if (needle[j] == '\0')
+		return ((char*)&haystack[0]);
+	while (haystack[i] != '\0')
 	{
-		if (haystack[i] == needle[j] && haystack[i] == 0)
-			return ("");
-		if (needle[j] == '\0')
-			return ((char*)&haystack[i - j]);
-		while (haystack[i] != '\0')
+		if (haystack[i] == needle[j])
 		{
-			if (haystack[i] == needle[j])
-				j++;
+			j++;
 			i++;
-			if (needle[j] == '\0')
-				return ((char*)&haystack[i - j]);
+		}
+		else if (needle[j] == '\0')
+			return ((char*)&haystack[i - j]);
+		else
+		{
+			i = i - j + 1;
+			j = 0;
 		}
 	}
+	if (haystack[i] == '\0' && needle[j] == '\0')
+		return ((char*)&haystack[i - j]);
 	return (NULL);
 }
