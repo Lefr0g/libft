@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/20 13:14:02 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/26 16:18:14 by amulin           ###   ########.fr       */
+/*   Created: 2014/11/26 16:15:43 by amulin            #+#    #+#             */
+/*   Updated: 2014/11/26 16:20:00 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
@@ -21,7 +21,7 @@ void	ft_striter(char *s, void (*f)(char*))
 	{
 		while (s[i] != '\0')
 		{
-			(*f)(&s[i]);
+			(*f)(i, &s[i]);
 			i++;
 		}
 	}

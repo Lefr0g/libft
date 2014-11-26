@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/20 13:14:02 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/26 16:18:14 by amulin           ###   ########.fr       */
+/*   Created: 2014/11/26 17:38:53 by amulin            #+#    #+#             */
+/*   Updated: 2014/11/26 17:39:37 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char*))
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	unsigned int	i;
-
-	i = 0;
-	if (s != NULL && (*f) != NULL)
+	if (s1 != NULL && s2 != NULL)
 	{
-		while (s[i] != '\0')
-		{
-			(*f)(&s[i]);
-			i++;
-		}
+		if (ft_strncmp(s1, s2, n) != 0)
+			return (0);
+		else
+			return (1);
 	}
+	return ('\0');
 }
