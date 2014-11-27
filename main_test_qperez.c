@@ -219,9 +219,9 @@ int					main(void)
 	D_ADD_TEST(strequ);
 #define	D_STRNEQU
 	D_ADD_TEST(strnequ);
-/*
 #define	D_STRSUB
 	D_ADD_TEST(strsub);
+/*
 #define	D_STRJOIN
 	D_ADD_TEST(strjoin);
 #define	D_STRSPLIT
