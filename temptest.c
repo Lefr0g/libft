@@ -7,6 +7,26 @@
 int	main(void)
 {
 
+//	printf("\nft_putnbr << 01-11230010203-562147483647-2147483648 >> :\n");
+//	ft_putnbr(01-11230010203-562147483647-2147483648);
+/*
+	ft_putnbr(-1234-4321);
+	ft_putchar('\n');
+	ft_putnbr(0);
+	ft_putchar('\n');
+	ft_putnbr(-2147483648);
+*/
+/*
+	printf("\nft_itoa << -1234 >> : %s\n", ft_itoa(-1234));
+*/
+/*
+	printf("\nft_strjoin('', '') = '%s'\n", ft_strjoin("", ""));
+	printf("\nft_strjoin(NULL, '') = '%s'\n", ft_strjoin(NULL, ""));
+*/
+	char	**splitres;
+
+	splitres = ft_strsplit("Hello*les*gens", '*');
+	printf("\nft_strsplit('Hello*les*gens', '*') : %s, %s, %s", splitres[0], splitres[1], splitres[2]);
 
 /*
 	printf("\n<< 'q', 'a', 0 >>, strncmp = %d, ft_strncmp = %d\n", strncmp("q", "a", 0), ft_strncmp("q", "a", 0));
@@ -20,6 +40,7 @@ int	main(void)
 	printf("\n<< Hello, 0 >>, strchr = %s, ft_strchr = %s\n", strchr("Hello", 0), ft_strchr("Hello", 0));
 
 */
+/*
 	printf("\n<< 'Hello', '' >>, strstr = %s, ft_strstr = %s.\n", strstr("Hello", ""), ft_strstr("Hello", ""));
 	printf("\n<< '', '' >>, strstr = %s, ft_strstr = %s.\n", strstr("", ""), ft_strstr("", ""));
 	printf("\n<< 'gaaaaabcxxaabcdyy', 'aabcd' >>, strstr = %s, ft_strstr = %s.\n", strstr("gaaaaabcxxaabcdyy", "aabcd"), ft_strstr("gaaaaabcxxaabcdyy", "aabcd"));
@@ -33,7 +54,7 @@ int	main(void)
 
 	printf("\n<< 'Ceci n'est pas une pipe.', '.' >>, strstr = %s.\n", strstr("Ceci n'est pas une pipe.", "."));
 	printf("\n<< 'Ceci n'est pas une pipe.', '.' >>, ft_strstr = %s.\n", ft_strstr("Ceci n'est pas une pipe.", "."));
-
+*/
 /*	
 	printf("\n<< '', 'Hello' >>, strstr = %s, ft_strstr = %s.\n", strstr("", "Hello"), ft_strstr("", "Hello"));
 	

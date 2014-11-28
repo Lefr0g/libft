@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/26 17:40:13 by amulin           ###   ########.fr       */
+/*   Updated: 2014/11/28 13:41:37 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_srtsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
+char	**ft_strsplit(char const *s, char c);
+char	*ft_itoa(int n);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

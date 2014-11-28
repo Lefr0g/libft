@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/05 16:46:20 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/05 16:51:51 by amulin           ###   ########.fr       */
+/*   Created: 2014/11/28 17:40:52 by amulin            #+#    #+#             */
+/*   Updated: 2014/11/28 17:42:59 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 void ft_putnbr_fd(int n, int fd)
 {
-	int i;
-	int buf;
-
-	i = 1;
-	buf = n;
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-214748364", fd);
+		n = 8;
+	}
 	if (n < 0)
 	{
-		n = -n;
 		ft_putchar_fd('-', fd);
-		buf = n;
+		n = -n;
 	}
-	while (buf > 9)
+	if (n > 9)
 	{
-		buf = buf / 10;
-		i = i * 10;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
-	while (i > 0)
-	{
-		ft_putchar_fd((n / i) + '0', fd);
-		n = n % i;
-		i = i / 10;
-	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }

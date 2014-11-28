@@ -1,4 +1,14 @@
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/11/28 12:28:07 by amulin            #+#    #+#             */
+/*   Updated: 2014/11/28 12:28:40 by amulin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -9,7 +19,7 @@ static void	my_strrev(char *s)
 
 	i = 0;
 	len = ft_strlen(s);
-	while(i <= len / 2)
+	while (i <= len / 2)
 	{
 		s[i] = s[len - i];
 		i++;
@@ -40,7 +50,7 @@ static void	my_blankremove(char *s)
 	s[j] = '\0';
 }
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
 	char	*buf;
 
