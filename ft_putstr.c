@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:58:55 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/03 16:09:26 by amulin           ###   ########.fr       */
+/*   Updated: 2014/12/01 17:52:58 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,12 @@ void	ft_putstr(char const *s)
 	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (s != NULL)
 	{
-		ft_putchar(s[i]);
-		i++;
+		while (s[i] != '\0')
+		{
+			ft_putchar(s[i]);
+			i++;
+		}
 	}
 }

@@ -23,11 +23,20 @@ int	main(void)
 	printf("\nft_strjoin('', '') = '%s'\n", ft_strjoin("", ""));
 	printf("\nft_strjoin(NULL, '') = '%s'\n", ft_strjoin(NULL, ""));
 */
+/*
+	ft_putendl_fd(NULL, 1);
+*/
+
 	char	**splitres;
 
-	splitres = ft_strsplit("Hello*les*gens", '*');
-	printf("\nft_strsplit('Hello*les*gens', '*') : %s, %s, %s", splitres[0], splitres[1], splitres[2]);
-
+	splitres = ft_strsplit("", '*');
+	printf("\nMain : fin de ft_strsplit");
+	printf("\nft_strsplit(NULL, 0) : %s\n", splitres[0]);
+/*
+	splitres = ft_strsplit("**Hello****les*gens***", '*');
+	printf("\nMain : fin de ft_strsplit");
+	printf("\nft_strsplit('**Hello****les*gens***', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
+*/
 /*
 	printf("\n<< 'q', 'a', 0 >>, strncmp = %d, ft_strncmp = %d\n", strncmp("q", "a", 0), ft_strncmp("q", "a", 0));
 
