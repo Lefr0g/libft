@@ -27,11 +27,13 @@ int	main(void)
 	ft_putendl_fd(NULL, 1);
 */
 
+	printf("\nMain : Check start");
 	char	**splitres;
 
-	splitres = ft_strsplit("", '*');
+	printf("\nMain : Declaration OK");
+	splitres = ft_strsplit("**Hello****All*Folks**\0", '*');
 	printf("\nMain : fin de ft_strsplit");
-	printf("\nft_strsplit(NULL, 0) : %s\n", splitres[0]);
+	printf("\nMain : ft_strsplit('**Hello****All*Folks**', 'c') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
 /*
 	splitres = ft_strsplit("**Hello****les*gens***", '*');
 	printf("\nMain : fin de ft_strsplit");

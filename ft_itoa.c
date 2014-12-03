@@ -43,7 +43,7 @@ char		*ft_itoa(int n)
 	i = 1;
 	buf = n;
 	j = 1;
-	if (buf == -2147483648)
+	if (buf == -2147483648LL)
 	{
 		result = (char*)malloc(sizeof(char) * 12);
 		ft_strcpy(result, "-2147483648");

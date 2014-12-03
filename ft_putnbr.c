@@ -14,7 +14,7 @@
 
 void ft_putnbr(int n)
 {
-	if (n == -2147483648)
+	if (n == -2147483648LL)
 	{
 		ft_putstr("-214748364");
 		n = 8;
