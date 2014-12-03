@@ -15,31 +15,30 @@
 
 static	void	my_varsetzero(size_t *i)
 {
-	size_t	k;
-
-	k = 0;
-	while (k <= 3)
-	{
-		i[k] = 0;
-		k++;
-	}
+	i[1] = 0;	
+	i[2] = 0;
+	i[3] = 0;
 }
 
 static size_t	my_counter(char const *s, char c)
 {
 	size_t	i;
 	size_t	count;
+	size_t	flag;
 
 	i = 0;
-	count = 1;
+	count = 0;
+	flag = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
 			count++;
+		if (s[i] != c)
+			flag++;
 		i++;
 	}
-	if (s[0] == c && count > 1)
-		count--;
+	if (i != 0 && count == 0 && flag != 0)
+		count++;
 	return (count);
 }
 
@@ -63,6 +62,12 @@ static size_t	my_strlenchar(char const *s, char c, size_t *i)
 	return (len);
 }
 
+static void		my_strfill(char const *s, char **buff, size_t *i)
+{
+	ft_strncpy(buff[i[3]], &s[i[1] - i[2]], i[2]);
+	ft_bzero(&buff[i[3]][i[1] + 1], 1);
+}
+
 char	**ft_strsplit(char const *s, char c)
 {
 	char	**buff;
@@ -71,7 +76,6 @@ char	**ft_strsplit(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	i[0] = my_counter(s, c);
-	printf("\ni[0] = %zd\n", i[0]);
 	buff = (char**)malloc(sizeof(char*) * i[0]);	
 	if (buff == NULL)
 		return (NULL);
@@ -79,17 +83,13 @@ char	**ft_strsplit(char const *s, char c)
 	while (i[3] <= i[0])
 	{
 		i[2] = my_strlenchar(s, c, &i[1]);
-		printf("\ni[0] = %zd, i[1] = %zd, i[2] = %zd, i[3] = %zd\n", i[0], i[1], i[2], i[3]);
 		buff[i[3]] = (char*)malloc(sizeof(char) * (i[2] + 1));
 		if (buff[i[3]] == NULL)
 			return (NULL);
 		if (i[3] == i[0])
-			ft_strcpy(buff[i[3]], "");
+			buff[i[3]] = NULL;
 		else
-		{
-			ft_strncpy(buff[i[3]], &s[i[1] - i[2]], i[2]);
-			ft_bzero(&buff[i[3]][i[1] + 1], 1);
-		}
+			my_strfill(s, buff, i);
 		i[3]++;
 	}
 	return (buff);

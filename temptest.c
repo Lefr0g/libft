@@ -30,10 +30,31 @@ int	main(void)
 	printf("\nMain : Check start");
 	char	**splitres;
 
-	printf("\nMain : Declaration OK");
-	splitres = ft_strsplit("**Hello****All*Folks**\0", '*');
+//	printf("\nMain : Declaration OK");
+
+	splitres = ft_strsplit("**Hello****All*Folks**", '*');
 	printf("\nMain : fin de ft_strsplit");
-	printf("\nMain : ft_strsplit('**Hello****All*Folks**', 'c') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
+	printf("\nMain : ft_strsplit('**Hello****All*Folks**', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
+
+	splitres = ft_strsplit("Hello", '*');
+	printf("\nMain : fin de ft_strsplit");
+	printf("\nMain : ft_strsplit('Hello', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
+
+	splitres = ft_strsplit("*****", '*');
+	printf("\nMain : fin de ft_strsplit");
+	printf("\nMain : ft_strsplit('*****', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
+	if (splitres == NULL || splitres[0] != NULL)
+		printf("\nMain : ERROR\n");	
+
+
+	ft_strsplit(NULL, 0);
+	splitres = ft_strsplit("", '*');
+	if (splitres == NULL || splitres[0] != NULL)
+		printf("\nMain : ERROR\n");	
+//	printf("\nMain : fin de ft_strsplit");
+//	printf("\nMain : ft_strsplit('Hello*World**', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
+
+
 /*
 	splitres = ft_strsplit("**Hello****les*gens***", '*');
 	printf("\nMain : fin de ft_strsplit");
