@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/28 12:28:53 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/28 12:28:54 by amulin           ###   ########.fr       */
+/*   Updated: 2014/12/04 16:57:42 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	if (buf == NULL)
 		return (NULL);
 	i = 0;
-	while (i <= len)
+	while (i < len && s[start + i] != '\0')
 	{
 		buf[i] = s[start + i];
 		i++;

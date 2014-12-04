@@ -26,7 +26,19 @@ int	main(void)
 /*
 	ft_putendl_fd(NULL, 1);
 */
+/*
+	char	*str;
 
+	str = "Un jour je serai, le meilleur dresseur !";
+	printf("\nString : '%s'", str);
+	printf("\nstrsub result : '%s'", ft_strsub(str, 8, 8));
+*/
+	char	*str;
+
+	str = "abc";
+	printf("\nString : '%s'", str);
+	printf("\nstrtrim result : '%s'", ft_strtrim(str));
+/*
 	printf("\nMain : Check start");
 	char	**splitres;
 
@@ -38,7 +50,7 @@ int	main(void)
 
 	splitres = ft_strsplit("Hello", '*');
 	printf("\nMain : fin de ft_strsplit");
-	printf("\nMain : ft_strsplit('Hello', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
+	printf("\nMain : ft_strsplit('Hello', '*') : %s, %s\n", splitres[0], splitres[1]);
 
 	splitres = ft_strsplit("*****", '*');
 	printf("\nMain : fin de ft_strsplit");
@@ -46,6 +58,9 @@ int	main(void)
 	if (splitres == NULL || splitres[0] != NULL)
 		printf("\nMain : ERROR\n");	
 
+	splitres = ft_strsplit("***salut****!**", '*');
+	printf("\nMain : fin de ft_strsplit");
+	printf("\nMain : ft_strsplit('***salut****!**', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
 
 	ft_strsplit(NULL, 0);
 	splitres = ft_strsplit("", '*');
@@ -53,7 +68,7 @@ int	main(void)
 		printf("\nMain : ERROR\n");	
 //	printf("\nMain : fin de ft_strsplit");
 //	printf("\nMain : ft_strsplit('Hello*World**', '*') : %s, %s, %s\n", splitres[0], splitres[1], splitres[2]);
-
+*/
 
 /*
 	splitres = ft_strsplit("**Hello****les*gens***", '*');

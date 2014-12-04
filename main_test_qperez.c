@@ -6,7 +6,7 @@
 /*   By: student@42 <@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/22 14:43:06 by student@42        #+#    #+#             */
-/*   Updated: 2014/12/01 19:16:37 by amulin           ###   ########.fr       */
+/*   Updated: 2014/12/04 15:34:24 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,12 +219,10 @@ int					main(void)
 	D_ADD_TEST(strequ);
 #define	D_STRNEQU
 	D_ADD_TEST(strnequ);
-/*
 #define	D_STRSUB
 	D_ADD_TEST(strsub);
 #define	D_STRJOIN
 	D_ADD_TEST(strjoin);
-*/
 #define	D_STRSPLIT
 	D_ADD_TEST(strsplit);
 /*

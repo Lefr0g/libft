@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/01 20:10:47 by amulin            #+#    #+#             */
-/*   Updated: 2014/12/01 21:10:10 by amulin           ###   ########.fr       */
+/*   Updated: 2014/12/04 16:25:29 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	void	my_varsetzero(size_t *i)
 {
-	i[1] = 0;	
+	i[1] = 0;
 	i[2] = 0;
 	i[3] = 0;
 }
@@ -64,10 +64,10 @@ static size_t	my_strlenchar(char const *s, char c, size_t *i)
 static void		my_strfill(char const *s, char **buff, size_t *i)
 {
 	ft_strncpy(buff[i[3]], &s[i[1] - i[2]], i[2]);
-	ft_bzero(&buff[i[3]][i[1] + 1], 1);
+	buff[i[3]][i[2]] = '\0';
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**buff;
 	size_t	i[4];
@@ -75,7 +75,7 @@ char	**ft_strsplit(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	i[0] = my_counter(s, c);
-	buff = (char**)malloc(sizeof(char*) * i[0]);	
+	buff = (char**)malloc(sizeof(char*) * (i[0] + 1));
 	if (buff == NULL)
 		return (NULL);
 	my_varsetzero(i);
