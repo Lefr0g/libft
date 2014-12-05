@@ -33,11 +33,14 @@ int	main(void)
 	printf("\nString : '%s'", str);
 	printf("\nstrsub result : '%s'", ft_strsub(str, 8, 8));
 */
+/*
 	char	*str;
 
 	str = "abc";
+	printf("\nStrlen sring = %zd", ft_strlen(str));
 	printf("\nString : '%s'", str);
 	printf("\nstrtrim result : '%s'", ft_strtrim(str));
+*/
 /*
 	printf("\nMain : Check start");
 	char	**splitres;
@@ -87,6 +90,9 @@ int	main(void)
 	printf("\n<< Hello, 0 >>, strchr = %s, ft_strchr = %s\n", strchr("Hello", 0), ft_strchr("Hello", 0));
 
 */
+	ft_strstr(NULL, NULL);
+	printf("\nstrstr(NULL, NULL) OK");
+
 /*
 	printf("\n<< 'Hello', '' >>, strstr = %s, ft_strstr = %s.\n", strstr("Hello", ""), ft_strstr("Hello", ""));
 	printf("\n<< '', '' >>, strstr = %s, ft_strstr = %s.\n", strstr("", ""), ft_strstr("", ""));
