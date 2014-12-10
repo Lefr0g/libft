@@ -6,12 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 17:51:09 by amulin            #+#    #+#             */
-/*   Updated: 2014/11/11 18:20:43 by amulin           ###   ########.fr       */
+/*   Updated: 2014/12/10 12:32:25 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
