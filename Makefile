@@ -10,6 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
+# OS detection (Linux / OSX)
+#
+OS_NAME = $(shell uname -s)
+ifeq ($(OS_NAME),Linux)
+	CC = gcc
+endif
+ifeq ($(OS_NAME),Darwin)
+	CC = clang
+endif
+
+
 NAME = libft.a
 
 FLAGS = -Wall -Werror -Wextra
@@ -45,7 +56,7 @@ $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(SRCS) $(INLUDES)
-	clang $(FLAGS) -c $(SRCS) -I $(INCLUDIR)
+	$(CC) $(FLAGS) -c $(SRCS) -I $(INCLUDIR)
 
 clean:
 	rm -f $(OBJECTS)
