@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 12:42:59 by amulin            #+#    #+#             */
-/*   Updated: 2014/12/05 19:32:39 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/03 13:56:27 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void my_varincrement(int *i, int *j)
+static void	my_varincrement(int *i, int *j)
 {
 	*i = *i + 1;
 	*j = *j + 1;
