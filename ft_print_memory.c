@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/02 19:36:14 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/03 14:08:37 by amulin           ###   ########.fr       */
+/*   Updated: 2015/12/03 14:12:15 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_puthex_byte(unsigned char val)
 {
-	int		i;
+	int				i;
 	unsigned char	tmp;
 
 	tmp = val;
