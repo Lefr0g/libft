@@ -61,9 +61,11 @@ static void	print_symbols(const void *addr, size_t size)
 
 void		ft_print_memory(const void *addr, size_t size)
 {
-	size_t	i;
-	size_t	linelen;
+	size_t			i;
+	size_t			linelen;
+	unsigned char	*ptr;
 
+	ptr = (unsigned char*)addr;
 	i = 0;
 	linelen = 0;
 	while (i <= size)
@@ -71,7 +73,7 @@ void		ft_print_memory(const void *addr, size_t size)
 		if ((!(i % 16) || i == size) && i)
 		{
 			ft_putchar(' ');
-			print_symbols(&addr[i - linelen], linelen);
+			print_symbols(&ptr[i - linelen], linelen);
 			ft_putchar('\n');
 			linelen = 0;
 		}
