@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   libft/includes/libft.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/28 18:38:02 by amulin           ###   ########.fr       */
+/*   Updated: 2016/01/06 19:42:32 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,7 @@ void				ft_print_memory(const void *addr, size_t size);
 **	Mine
 */
 int					ft_abs(int i);
+
+int					ft_tabmax(int *tab, int siz);
 
 #endif
