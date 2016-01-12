@@ -16,7 +16,7 @@ int		ft_tabmax(int *t, int siz)
 {
 	int	max;
 
-	max = 0;
+	max = INT_MIN;
 	while (siz--)
 		if (max < t[siz])
 			max = t[siz];

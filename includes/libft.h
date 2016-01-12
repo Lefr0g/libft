@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 
 /*
 **	Lists
@@ -121,5 +122,6 @@ void				ft_print_memory(const void *addr, size_t size);
 int					ft_abs(int i);
 
 int					ft_tabmax(int *tab, int siz);
+int					ft_tabmin(int *tab, int siz);
 
 #endif
