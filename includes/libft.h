@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   libft/includes/libft.h                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/01/14 19:00:28 by amulin           ###   ########.fr       */
+/*   Updated: 2016/01/15 15:31:43 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 
 /*
 **	Lists
@@ -120,5 +121,8 @@ void				ft_print_memory(const void *addr, size_t size);
 **	Mine
 */
 int					ft_abs(int i);
+
+int					ft_tabmax(int *tab, int siz);
+int					ft_tabmin(int *tab, int siz);
 
 #endif

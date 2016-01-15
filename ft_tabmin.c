@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstappend.c                                     :+:      :+:    :+:   */
+/*   ft_tabmin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/28 18:33:24 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/28 18:37:23 by amulin           ###   ########.fr       */
+/*   Created: 2016/01/06 19:38:17 by amulin            #+#    #+#             */
+/*   Updated: 2016/01/06 19:40:52 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstappend(t_list **alst, t_list *new)
+int		ft_tabmin(int *t, int siz)
 {
-	t_list	*ptr;
+	int	min;
 
-	ptr = *alst;
-	if (alst && *alst && new)
-	{
-		while (ptr->next)
-			ptr = ptr->next;
-		ptr->next = new;
-		new->next = NULL;
-		new->prev = ptr;
-	}
+	min = INT_MAX;
+	while (siz--)
+		if (min > t[siz])
+			min = t[siz];
+	return (min);
 }

@@ -35,5 +35,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		buf->content_size = cpy_content_size;
 	}
 	buf->next = NULL;
+	buf->prev = NULL;
 	return (buf);
 }

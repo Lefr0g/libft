@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstappend.c                                     :+:      :+:    :+:   */
+/*   libft/ft_tabmax.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lpoujade <lpoujade@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/28 18:33:24 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/28 18:37:23 by amulin           ###   ########.fr       */
+/*   Created: 2016/01/06 19:38:17 by lpoujade          #+#    #+#             */
+/*   Updated: 2016/01/06 19:40:52 by lpoujade         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstappend(t_list **alst, t_list *new)
+int		ft_tabmax(int *t, int siz)
 {
-	t_list	*ptr;
+	int	max;
 
-	ptr = *alst;
-	if (alst && *alst && new)
-	{
-		while (ptr->next)
-			ptr = ptr->next;
-		ptr->next = new;
-		new->next = NULL;
-		new->prev = ptr;
-	}
+	max = INT_MIN;
+	while (siz--)
+		if (max < t[siz])
+			max = t[siz];
+	return (max);
 }
