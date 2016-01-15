@@ -23,5 +23,6 @@ void	ft_lstappend(t_list **alst, t_list *new)
 			ptr = ptr->next;
 		ptr->next = new;
 		new->next = NULL;
+		new->prev = ptr;
 	}
 }
