@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/28 18:38:02 by amulin           ###   ########.fr       */
+/*   Updated: 2016/01/14 19:00:28 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_list
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
+	struct s_list	*prev;
 }					t_list;
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
