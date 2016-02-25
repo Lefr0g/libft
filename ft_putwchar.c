@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/14 12:44:07 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/25 21:14:28 by amulin           ###   ########.fr       */
+/*   Updated: 2016/02/25 21:41:53 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,13 @@ void	ft_putwchar(wchar_t c)
 	unsigned int	utf;
 
 	utf = ft_uni_to_utf8(c);
-	write(1, &utf, 4);
+	if (c <= 0x007F)
+		write(1, &utf, 1);
+	else if (c <= 0x7FF)
+		write(1, &utf, 2);
+	else if (c <= 0xFFFF)
+		write(1, &utf, 3);
+	else
+		write(1, &utf, 4);
+
 }
