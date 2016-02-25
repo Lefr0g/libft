@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 14:57:44 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/25 20:37:03 by amulin           ###   ########.fr       */
+/*   Updated: 2016/02/25 21:47:31 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	manage_neg(char *out, int *negflag)
 	i = 0;
 	while (out[i])
 	{
-		(out[i] == '0') ? (out[i] = '1') : (out[i] = '0');
+		(out[i] == '0') ? '1' : '0';
 		i++;
 	}
 	i--;
@@ -58,7 +58,7 @@ static void	fill_table(int *n, char *out)
 	}
 }
 
-void	ft_putbin(int n)
+void		ft_putbin(int n)
 {
 	int		i;
 	int		negflag;
@@ -71,7 +71,6 @@ void	ft_putbin(int n)
 	fill_table(&n, out);
 	if (negflag)
 		manage_neg(out, &negflag);
-
 	i = 0;
 	while (out[i])
 	{
