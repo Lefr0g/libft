@@ -6,19 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 14:57:44 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/25 14:57:54 by amulin           ###   ########.fr       */
+/*   Updated: 2016/02/25 20:37:03 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
- * 			2.7 2.6 2.5 2.4 2.3 2.2 2.1 2.0
- * 7 -> 	0	0	0	0	0	1	1	1
- *
- * 7/2 = 3 r 1
- * 3/2 = 1 r 1
-*/
-
-#include "../includes/libft.h"
+#include "libft.h"
 
 static void	manage_neg(char *out, int *negflag)
 {
@@ -88,43 +80,4 @@ void	ft_putbin(int n)
 		ft_putchar(out[i]);
 		i++;
 	}
-}
-
-
-/*
- *************************************************************************
-*/
-int		main(void)
-{
-	int	i;
-
-	i = -42;
-	while (i <= 42)
-	{
-		ft_putstr("i = ");
-		ft_putnbr(i);
-		ft_putchar('\t');
-		ft_putbin(i);
-		ft_putchar('\n');
-		i++;
-	}
-	i = INT_MAX;
-	{
-		ft_putstr("i = ");
-		ft_putnbr(i);
-		ft_putchar('\t');
-		ft_putbin(i);
-		ft_putchar('\n');
-		i++;
-	}
-	i = INT_MIN;
-	{
-		ft_putstr("i = ");
-		ft_putnbr(i);
-		ft_putchar('\t');
-		ft_putbin(i);
-		ft_putchar('\n');
-		i++;
-	}
-	return (0);
 }

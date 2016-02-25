@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 14:59:39 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/25 20:29:34 by amulin           ###   ########.fr       */
+/*   Updated: 2016/02/25 20:37:14 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 unsigned int	ft_uni_to_utf8(wchar_t codepoint)
 {

@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/25 18:00:52 by amulin           ###   ########.fr       */
+/*   Updated: 2016/02/25 20:37:37 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include <wchar.h>
 
 /*
 **	Lists
@@ -126,5 +127,6 @@ int					ft_tabmax(int *tab, int siz);
 int					ft_tabmin(int *tab, int siz);
 
 unsigned int		ft_endian_swap(unsigned int input);
-
+unsigned int		ft_uni_to_utf8(wchar_t codepoint);
+void				ft_putbin(int n);
 #endif
