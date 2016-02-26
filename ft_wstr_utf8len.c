@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwstr.c                                       :+:      :+:    :+:   */
+/*   ft_wstr_utf8len.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 13:21:56 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/26 15:19:15 by amulin           ###   ########.fr       */
+/*   Created: 2016/02/26 16:40:24 by amulin            #+#    #+#             */
+/*   Updated: 2016/02/26 16:42:47 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putwstr(wchar_t const *wstr)
+size_t	ft_wstr_utf8len(const wchar_t *wstr)
 {
-	int	i;
-	int	outlen;
+	int		i;
+	size_t	len;
 
 	i = 0;
-	outlen = 0;
+	len = 0;
 	while (wstr[i])
 	{
-		outlen += ft_putwchar(wstr[i]);
+		if (wstr[i] <= 0x007F)
+			len += 1;
+		else if (wstr[i] <= 0x7FF)
+			len += 2;
+		else if (wstr[i] <= 0xFFFF)
+			len += 3;
+		else
+			len += 4;
 		i++;
 	}
-	return (outlen);
+	return (len);
 }

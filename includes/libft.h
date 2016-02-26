@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/26 15:08:51 by amulin           ###   ########.fr       */
+/*   Updated: 2016/02/26 16:06:15 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,8 @@ unsigned int		ft_uni_to_utf8(wchar_t codepoint);
 void				ft_putbin(int n);
 
 int					ft_putwchar(wchar_t c);
-void				ft_putwstr(wchar_t const *wstr);
-size_t				ft_wstrlen(wchar_t const *wstr);
+int					ft_putwstr(wchar_t const *wstr);
+size_t				ft_wstr_utf8len(wchar_t const *wstr);
+size_t				ft_wstr_memsize(wchar_t const *wstr);
 
 #endif
