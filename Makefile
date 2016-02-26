@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/02/25 21:14:49 by amulin           ###   ########.fr        #
+#    Updated: 2016/02/26 14:15:50 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 	   ft_lstmap.c ft_lstadd.c get_next_line.c \
 	   ft_abs.c ft_puthex.c ft_print_memory.c \
 	   ft_tabmax.c ft_tabmin.c \
-	   ft_endian_swap.c ft_putbin.c ft_uni_to_utf8.c ft_putwchar.c
+	   ft_endian_swap.c ft_putbin.c ft_uni_to_utf8.c \
+	   ft_putwchar.c ft_putwstr.c ft_wstrlen.c
 
 HEADERS = libft.h
 

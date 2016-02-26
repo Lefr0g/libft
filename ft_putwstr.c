@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putwchar.c                                      :+:      :+:    :+:   */
+/*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/14 12:44:07 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/26 15:09:29 by amulin           ###   ########.fr       */
+/*   Created: 2016/02/26 13:21:56 by amulin            #+#    #+#             */
+/*   Updated: 2016/02/26 14:39:45 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putwchar(wchar_t c)
+void	ft_putwstr(wchar_t const *wstr)
 {
-	unsigned int	utf;
-	int				outlen;
+	int	i;
 
-	outlen = 0;
-	utf = ft_uni_to_utf8(c);
-	if (c <= 0x007F)
-		outlen = 1;
-	else if (c <= 0x7FF)
-		outlen = 2;
-	else if (c <= 0xFFFF)
-		outlen = 3;
-	else
-		outlen = 4;
-	write(1, &utf, outlen);
-	return (outlen);
+	i = 0;
+	while (wstr[i])
+	{
+		ft_putwchar(wstr[i]);
+		i++;
+	}
 }
