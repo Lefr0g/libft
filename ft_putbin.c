@@ -19,7 +19,7 @@ static void	manage_neg(char *out, int *negflag)
 	i = 0;
 	while (out[i])
 	{
-		(out[i] == '0') ? '1' : '0';
+		(out[i] == '0') ? out[i] = '1' : (void)out;
 		i++;
 	}
 	i--;
