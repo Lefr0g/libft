@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/03/07 17:26:30 by amulin           ###   ########.fr        #
+#    Updated: 2016/03/10 18:36:36 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 	   ft_toupper.c ft_tolower.c \
 	   ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstiter.c ft_lstappend.c \
 	   ft_lstmap.c ft_lstadd.c get_next_line.c \
-	   ft_abs.c ft_puthex.c ft_print_memory.c \
+	   ft_abs.c ft_abs_ll.c ft_puthex.c ft_print_memory.c \
 	   ft_tabmax.c ft_tabmin.c \
 	   ft_endian_swap.c ft_putbin.c ft_uni_to_utf8.c \
 	   ft_putwchar.c ft_putwstr.c ft_wstr_utf8len.c ft_wstr_memsize.c \

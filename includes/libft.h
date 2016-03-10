@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/07 17:28:01 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/10 18:38:07 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void				ft_print_memory(const void *addr, size_t size);
 **	Mine
 */
 int					ft_abs(int i);
+long long			ft_abs_ll(long long i);
 
 int					ft_tabmax(int *tab, int siz);
 int					ft_tabmin(int *tab, int siz);
