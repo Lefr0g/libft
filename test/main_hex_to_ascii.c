@@ -24,15 +24,17 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		ft_putstr("\033[33m\n");
+		ft_putstr(argv[1]);
+		ft_putstr("\033[0m :\n\"\033[36m ");
 		i = 0;
 		while (argv[1][i] && i < (int)ft_strlen(argv[1]))
 		{
 			ft_putchar(ft_hexbytetoi(&argv[1][i]));
 			i += 3;
 		}
-		ft_putstr("\n");
 //		ft_putnbr(ft_hexbytetoi(argv[1]));
-//		ft_putstr("\n");
+		ft_putstr("\"\033[0m\n");
 	}
 	return (0);
 }
