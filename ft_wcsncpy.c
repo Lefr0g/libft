@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstr_utf8len.c                                  :+:      :+:    :+:   */
+/*   ft_wcsncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 16:40:24 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/18 17:51:22 by amulin           ###   ########.fr       */
+/*   Created: 2016/03/18 17:13:11 by amulin            #+#    #+#             */
+/*   Updated: 2016/03/18 17:13:12 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wstr_utf8len(const wchar_t *wstr)
+wchar_t	*ft_wcsncpy(wchar_t *dst, const wchar_t *src, size_t n)
 {
-	int		i;
-	size_t	len;
+	size_t lensrc;
+	size_t i;
 
-	i = 0;
-	len = 0;
-	while (wstr[i])
+	if (dst != NULL && src != NULL)
 	{
-		len += ft_wchar_utf8len(wstr[i]);
-		i++;
+		lensrc = ft_wcslen(src);
+		i = 0;
+		while (i < lensrc && i < n)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		if (lensrc < n)
+		{
+			while (i < n)
+			{
+				dst[i] = '\0';
+				i++;
+			}
+		}
 	}
-	return (len);
+	return (dst);
 }

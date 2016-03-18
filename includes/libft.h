@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/10 18:38:07 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/18 17:59:23 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,12 @@ void				ft_putbin(int n);
 
 int					ft_putwchar(wchar_t c);
 int					ft_putwstr(wchar_t const *wstr);
+size_t				ft_wchar_utf8len(wchar_t const wchar);
 size_t				ft_wstr_utf8len(wchar_t const *wstr);
 size_t				ft_wstr_memsize(wchar_t const *wstr);
+size_t				ft_wcslen(const wchar_t *s);
+wchar_t				*ft_wcsncpy(wchar_t *dst, const wchar_t *src, size_t n);
+wchar_t				*ft_utf8ncpy(wchar_t *dst, const wchar_t *src, size_t n);
 
 int					ft_ishexa(int c);
 int					ft_hexchartoi(char c);
