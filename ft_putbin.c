@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 14:57:44 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/25 21:47:31 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/23 15:28:42 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void		ft_putbin(int n)
 	i = 0;
 	while (out[i])
 	{
-		if (!(i % 8))
+		if (i && !(i % 8))
 			ft_putchar(' ');
 		ft_putchar(out[i]);
 		i++;
