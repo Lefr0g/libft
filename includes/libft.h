@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/18 17:59:23 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/23 16:48:38 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ int					ft_tabmin(int *tab, int siz);
 
 unsigned int		ft_endian_swap(unsigned int input);
 unsigned int		ft_uni_to_utf8(wchar_t codepoint);
-void				ft_putbin(int n);
+int					ft_putbin(unsigned long long n, int sizeof_type);
 
 int					ft_putwchar(wchar_t c);
 int					ft_putwstr(wchar_t const *wstr);

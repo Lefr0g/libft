@@ -6,42 +6,21 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 14:57:44 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/23 15:28:42 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/23 16:50:45 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	manage_neg(char *out, int *negflag)
+/*
+**	This function is supposed to be used with type casting
+*/
+
+static void	fill_table(unsigned long long *n, char *out, int outlen)
 {
 	int	i;
 
-	i = 0;
-	while (out[i])
-	{
-		(out[i] == '0') ? out[i] = '1' : (void)out;
-		i++;
-	}
-	i--;
-	while (negflag && i >= 0)
-	{
-		if (out[i] == '0')
-		{
-			out[i] = '1';
-			negflag = 0;
-		}
-		else
-			out[i] = '0';
-		i--;
-	}
-}
-
-static void	fill_table(int *n, char *out)
-{
-	int	i;
-
-	out[32] = '\0';
-	i = 31;
+	i = outlen - 1;
 	while (*n)
 	{
 		if (*n % 2)
@@ -58,25 +37,27 @@ static void	fill_table(int *n, char *out)
 	}
 }
 
-void		ft_putbin(int n)
+int			ft_putbin(unsigned long long n, int sizeof_type)
 {
 	int		i;
-	int		negflag;
-	char	out[33];
+	char	*out;
+	int		binlen;
 
-	if (n < 0)
-		negflag = 1;
-	else
-		negflag = 0;
-	fill_table(&n, out);
-	if (negflag)
-		manage_neg(out, &negflag);
-	i = 0;
-	while (out[i])
+	binlen = sizeof_type * 8;
+	if (!(binlen % 8))
 	{
-		if (i && !(i % 8))
-			ft_putchar(' ');
-		ft_putchar(out[i]);
-		i++;
+		out = ft_strnew(binlen + 1);
+		ft_bzero(out, binlen);
+		fill_table(&n, out, binlen);
+		i = 0;
+		while (out[i])
+		{
+			if (i && !(i % 8))
+				ft_putchar(' ');
+			ft_putchar(out[i]);
+			i++;
+		}
 	}
+	ft_strdel(&out);
+	return (binlen + (binlen / 8 - 1));
 }
