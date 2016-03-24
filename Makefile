@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/03/18 17:58:47 by amulin           ###   ########.fr        #
+#    Updated: 2016/03/24 14:20:22 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,17 @@ SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 	   ft_toupper.c ft_tolower.c \
 	   ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstiter.c ft_lstappend.c \
 	   ft_lstmap.c ft_lstadd.c get_next_line.c \
-	   ft_abs.c ft_abs_ll.c ft_puthex.c ft_print_memory.c \
-	   ft_tabmax.c ft_tabmin.c \
+	   ft_abs.c ft_abs_ll.c ft_print_memory.c \
+	   ft_tabmax.c ft_tabmin.c ft_getmax.c \
 	   ft_endian_swap.c ft_putbin.c ft_uni_to_utf8.c \
 	   ft_putwchar.c ft_putwstr.c \
 	   ft_wchar_utf8len.c ft_wstr_utf8len.c ft_utf8ncpy.c \
 	   ft_wstr_memsize.c \
 	   ft_wcslen.c ft_wcsncpy.c \
-	   ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c
+	   ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c \
+	   ft_itoa_ll.c ft_itoa_ull.c \
+	   ft_puthex.c ft_puthex_ull.c ft_putnbr_ll.c ft_putnbr_ull.c \
+	   ft_putoctal.c
 
 HEADERS = libft.h
 
