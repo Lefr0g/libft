@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 14:26:41 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/24 14:34:05 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,13 +147,12 @@ int					ft_hexbytetoi(char *hexbyte);
 /*
 **	Made for ft_printf
 */
-int				ft_getmax(int a, int b);
-void			ft_puthex_ull(unsigned long long int n, char *mode);
-void			ft_putoctal(unsigned long long n);
-void			ft_putnbr_ull(unsigned long long int n);
-void			ft_putnbr_ll(long long n);
-char			*ft_itoa_ll(long long int n, unsigned int base);
-char			*ft_itoa_ull(unsigned long long n, unsigned int base);
-
+int					ft_getmax(int a, int b);
+void				ft_puthex_ull(unsigned long long int n, char *mode);
+void				ft_putoctal(unsigned long long n);
+void				ft_putnbr_ull(unsigned long long int n);
+void				ft_putnbr_ll(long long n);
+char				*ft_itoa_ll(long long int n, unsigned int base);
+char				*ft_itoa_ull(unsigned long long n, unsigned int base);
 
 #endif
