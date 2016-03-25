@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 14:57:44 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/23 16:50:45 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/25 16:58:21 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	fill_table(unsigned long long *n, char *out, int outlen)
 	int	i;
 
 	i = outlen - 1;
-	while (*n)
+	while (*n && i >= 0)
 	{
 		if (*n % 2)
 			out[i] = '1';
@@ -57,7 +57,7 @@ int			ft_putbin(unsigned long long n, int sizeof_type)
 			ft_putchar(out[i]);
 			i++;
 		}
+		ft_strdel(&out);
 	}
-	ft_strdel(&out);
 	return (binlen + (binlen / 8 - 1));
 }
