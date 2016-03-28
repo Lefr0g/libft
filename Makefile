@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/03/28 20:12:25 by amulin           ###   ########.fr        #
+#    Updated: 2016/03/28 20:22:02 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,22 +67,29 @@ FTPF_OBJ = ft_printf.o ftpf_init.o \
 		   ftpf_conversions_unsigned.o ftpf_conversions_bonus.o \
 		   ftpf_directives.o
 
+FTPF_DIR = ft_printf/
+
+FTPF_OBJECTS = $(addprefix $(FTPF_DIR), $(FTPF_OBJ))
+
 .PHONY: all, clean, fclean, re
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(OBJECTS) $(FTPF_OBJECTS)
+	ar rcs $(NAME) $(OBJECTS) $(FTPF_OBJECTS)
 
 $(OBJECTS): $(SRCS) $(INCLUDES)
 	$(CC) $(FLAGS) -c $(SRCS) -I $(INCLUDIR)
 
 $(FTPF_OBJECTS):
+	make -C ft_printf
 
 clean:
 	rm -f $(OBJECTS)
+	make -C ft_printf clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C ft_printf fclean
 
 re: fclean all
