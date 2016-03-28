@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/10 17:35:06 by amulin            #+#    #+#              #
-#    Updated: 2016/03/28 20:01:48 by amulin           ###   ########.fr        #
+#    Updated: 2016/03/28 21:26:14 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,6 +72,8 @@ LIBFTSRCS = ft_atoi.c ft_isdigit.c ft_itoa.c ft_putchar.c ft_putendl.c \
 			ft_getmax.c ft_itoa_ll.c ft_itoa_ull.c ft_putnbr_ll.c \
 			ft_putnbr_ull.c ft_puthex_ull.c ft_putoctal.c \
 			ft_abs.c ft_abs_ll.c ft_putbin.c \
+
+HEADERS = $(PRINTHEADERS) $(LIBFTHEADERS)
 
 LIBFTSRCDIR = ../
 
