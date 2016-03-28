@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    libft/Makefile                                     :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/03/24 14:20:22 by amulin           ###   ########.fr        #
+#    Updated: 2016/03/28 20:12:25 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,9 +54,18 @@ HEADERS = libft.h
 
 INCLUDIR = includes/
 
-INCLUDES = $(addsuffix $(INCLUDIR), $(HEADERS))
+INCLUDES = $(addprefix $(INCLUDIR),$(HEADERS))
 
 OBJECTS = $(subst .c,.o,$(SRCS))
+
+
+FTPF_OBJ = ft_printf.o ftpf_init.o \
+		   ftpf_lenmods_signed.o ftpf_lenmods_unsigned.o \
+		   ftpf_lenmods_text.o ftpf_lenmods_xp.o \
+		   ftpf_flags.o ftpf_output_rules.o \
+		   ftpf_conversions_text.o ftpf_conversions_signed.o \
+		   ftpf_conversions_unsigned.o ftpf_conversions_bonus.o \
+		   ftpf_directives.o
 
 .PHONY: all, clean, fclean, re
 
@@ -65,8 +74,10 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
 
-$(OBJECTS): $(SRCS) $(INLUDES)
+$(OBJECTS): $(SRCS) $(INCLUDES)
 	$(CC) $(FLAGS) -c $(SRCS) -I $(INCLUDIR)
+
+$(FTPF_OBJECTS):
 
 clean:
 	rm -f $(OBJECTS)
