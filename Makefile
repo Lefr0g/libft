@@ -1,13 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    libft/Makefile                                     :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2016/03/28 18:12:46 by amulin           ###   ########.fr        #
+#    Updated: 2016/03/28 21:51:24 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,28 +49,54 @@ SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 	   ft_puthex.c ft_puthex_ull.c ft_putoctal.c ft_putbin.c \
 	   ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c
 
-HEADERS = libft.h
+LFTHEADER = libft.h
 
 INCLUDIR = includes/
 
-INCLUDES = $(addsuffix $(INCLUDIR), $(HEADERS))
+INCLUDES = $(addprefix $(INCLUDIR),$(LFTHEADER))
 
 OBJECTS = $(subst .c,.o,$(SRCS))
+
+
+FTPF_DIR = ft_printf/
+
+FTPF_HEADER = $(addprefix $(FTPF_DIR), includes/ft_printf.h)
+
+FTPF_SRC = ft_printf.c ftpf_init.c \
+		   ftpf_lenmods_signed.c ftpf_lenmods_unsigned.c \
+		   ftpf_lenmods_text.c ftpf_lenmods_xp.c \
+		   ftpf_flags.c ftpf_output_rules.c \
+		   ftpf_conversions_text.c ftpf_conversions_signed.c \
+		   ftpf_conversions_unsigned.c ftpf_conversions_bonus.c \
+		   ftpf_directives.c
+
+FTPF_OBJ = $(subst .c,.o,$(FTPF_SRC))
+
+FTPF_SOURCES = $(addprefix sources/, $(FTPF_SRC))
+
+FTPF_SOURCES_ORIG = $(addprefix $(FTPF_DIR), $(FTPF_SOURCES))
+
+FTPF_OBJECTS = $(addprefix $(FTPF_DIR), $(FTPF_OBJ))
 
 .PHONY: all, clean, fclean, re
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+$(NAME): $(OBJECTS) $(FTPF_OBJECTS)
+	ar rcs $(NAME) $(OBJECTS) $(FTPF_OBJECTS)
 
-$(OBJECTS): $(SRCS) $(INLUDES)
+$(OBJECTS): $(SRCS) $(INCLUDES)
 	$(CC) $(FLAGS) -c $(SRCS) -I $(INCLUDIR)
+
+$(FTPF_OBJECTS): $(FTPF_HEADER) $(FTPF_SOURCES_ORIG)
+	make -C ft_printf
 
 clean:
 	rm -f $(OBJECTS)
+	make -C ft_printf clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C ft_printf fclean
 
 re: fclean all

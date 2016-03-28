@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 14:34:05 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/28 21:19:06 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <string.h>
 # include <limits.h>
 # include <wchar.h>
+
+# include "../ft_printf/includes/ft_printf.h"
 
 /*
 **	Lists
