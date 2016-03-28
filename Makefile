@@ -6,6 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2016/03/28 18:12:46 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
@@ -48,7 +49,6 @@ SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c ft_putstr_fd.c \
 	   ft_itoa_ll.c ft_itoa_ull.c ft_putnbr_ll.c ft_putnbr_ull.c \
 	   ft_puthex.c ft_puthex_ull.c ft_putoctal.c ft_putbin.c \
 	   ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c
-
 
 HEADERS = libft.h
 

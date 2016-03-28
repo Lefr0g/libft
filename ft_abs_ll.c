@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstr_utf8len.c                                  :+:      :+:    :+:   */
+/*   ft_abs_ll.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 16:40:24 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/18 17:51:22 by amulin           ###   ########.fr       */
+/*   Created: 2016/03/10 18:33:57 by amulin            #+#    #+#             */
+/*   Updated: 2016/03/10 18:38:48 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wstr_utf8len(const wchar_t *wstr)
+long long	ft_abs_ll(long long i)
 {
-	int		i;
-	size_t	len;
-
-	i = 0;
-	len = 0;
-	while (wstr[i])
-	{
-		len += ft_wchar_utf8len(wstr[i]);
-		i++;
-	}
-	return (len);
+	if (i < 0 && i != LLONG_MIN)
+		return (-i);
+	return (i);
 }

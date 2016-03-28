@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_hex_to_ascii.c                                :+:      :+:    :+:   */
+/*   ft_wcsncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/07 16:32:37 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/07 17:56:54 by amulin           ###   ########.fr       */
+/*   Created: 2016/03/18 17:13:11 by amulin            #+#    #+#             */
+/*   Updated: 2016/03/18 17:13:12 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(int argc, char **argv)
+wchar_t	*ft_wcsncpy(wchar_t *dst, const wchar_t *src, size_t n)
 {
-	int	i;
+	size_t lensrc;
+	size_t i;
 
-	if (argc != 2)
+	if (dst != NULL && src != NULL)
 	{
-		ft_putstr("usage: ");
-		ft_putstr(argv[0]);
-		ft_putstr(" <hexadecimal string, bytes separated by space>\n");
-	}
-	else
-	{
-		ft_putstr("\033[33m\n");
-		ft_putstr(argv[1]);
-		ft_putstr("\033[0m :\n\"\033[36m ");
+		lensrc = ft_wcslen(src);
 		i = 0;
-		while (argv[1][i] && i < (int)ft_strlen(argv[1]))
+		while (i < lensrc && i < n)
 		{
-			ft_putchar(ft_hexbytetoi(&argv[1][i]));
-			i += 3;
+			dst[i] = src[i];
+			i++;
 		}
-//		ft_putnbr(ft_hexbytetoi(argv[1]));
-		ft_putstr("\"\033[0m\n");
+		if (lensrc < n)
+		{
+			while (i < n)
+			{
+				dst[i] = '\0';
+				i++;
+			}
+		}
 	}
-	return (0);
+	return (dst);
 }

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstr_utf8len.c                                  :+:      :+:    :+:   */
+/*   ft_putoctal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 16:40:24 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/18 17:51:22 by amulin           ###   ########.fr       */
+/*   Created: 2015/12/11 14:34:32 by amulin            #+#    #+#             */
+/*   Updated: 2016/03/24 14:22:26 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wstr_utf8len(const wchar_t *wstr)
+void	ft_putoctal(unsigned long long n)
 {
-	int		i;
-	size_t	len;
-
-	i = 0;
-	len = 0;
-	while (wstr[i])
+	if (n > 7)
 	{
-		len += ft_wchar_utf8len(wstr[i]);
-		i++;
+		ft_putoctal(n / 8);
+		ft_putoctal(n % 8);
 	}
-	return (len);
+	else
+		ft_putchar(n + '0');
 }

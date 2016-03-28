@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstr_utf8len.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_ll.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 16:40:24 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/18 17:51:22 by amulin           ###   ########.fr       */
+/*   Created: 2014/11/05 11:30:24 by amulin            #+#    #+#             */
+/*   Updated: 2016/03/24 14:21:55 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wstr_utf8len(const wchar_t *wstr)
+void	ft_putnbr_ll(long long n)
 {
-	int		i;
-	size_t	len;
-
-	i = 0;
-	len = 0;
-	while (wstr[i])
+	if (n == LONG_MAX)
+		ft_putstr("9223372036854775807");
+	else if (n == LONG_MIN)
+		ft_putstr("-9223372036854775808");
+	else
 	{
-		len += ft_wchar_utf8len(wstr[i]);
-		i++;
+		if (n < 0)
+		{
+			ft_putchar('-');
+			n = -n;
+		}
+		if (n > 9)
+		{
+			ft_putnbr_ll(n / 10);
+			ft_putnbr_ll(n % 10);
+		}
+		else
+			ft_putchar(n + '0');
 	}
-	return (len);
 }

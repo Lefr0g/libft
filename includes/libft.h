@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/07 17:28:01 by amulin           ###   ########.fr       */
+/*   Updated: 2016/03/24 14:34:05 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,21 +122,37 @@ void				ft_print_memory(const void *addr, size_t size);
 **	Mine
 */
 int					ft_abs(int i);
+long long			ft_abs_ll(long long i);
 
 int					ft_tabmax(int *tab, int siz);
 int					ft_tabmin(int *tab, int siz);
 
 unsigned int		ft_endian_swap(unsigned int input);
 unsigned int		ft_uni_to_utf8(wchar_t codepoint);
-void				ft_putbin(int n);
+int					ft_putbin(unsigned long long n, int sizeof_type);
 
 int					ft_putwchar(wchar_t c);
 int					ft_putwstr(wchar_t const *wstr);
+size_t				ft_wchar_utf8len(wchar_t const wchar);
 size_t				ft_wstr_utf8len(wchar_t const *wstr);
 size_t				ft_wstr_memsize(wchar_t const *wstr);
+size_t				ft_wcslen(const wchar_t *s);
+wchar_t				*ft_wcsncpy(wchar_t *dst, const wchar_t *src, size_t n);
+wchar_t				*ft_utf8ncpy(wchar_t *dst, const wchar_t *src, size_t n);
 
 int					ft_ishexa(int c);
 int					ft_hexchartoi(char c);
 int					ft_hexbytetoi(char *hexbyte);
+
+/*
+**	Made for ft_printf
+*/
+int					ft_getmax(int a, int b);
+void				ft_puthex_ull(unsigned long long int n, char *mode);
+void				ft_putoctal(unsigned long long n);
+void				ft_putnbr_ull(unsigned long long int n);
+void				ft_putnbr_ll(long long n);
+char				*ft_itoa_ll(long long int n, unsigned int base);
+char				*ft_itoa_ull(unsigned long long n, unsigned int base);
 
 #endif
