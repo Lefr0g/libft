@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 14:53:24 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/28 20:38:30 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:48:03 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 **	Called from the directive() function.
 */
 
-int		ftpf_get_flags(const char *restrict format, t_env *e)
+int		ftpf_get_flags(const char *restrict format, t_ftpf_env *e)
 {
 	if (format[e->index] == '#')
 		e->alt = 1;
@@ -54,7 +54,7 @@ int		ftpf_get_flags(const char *restrict format, t_env *e)
 **	directives on the output (see man).
 */
 
-int		ftpf_process_flags(t_env *e)
+int		ftpf_process_flags(t_ftpf_env *e)
 {
 	if (e->alt || e->conversion == 'p')
 		ftpf_process_flag_alt(e);
@@ -76,7 +76,7 @@ int		ftpf_process_flags(t_env *e)
 	return (0);
 }
 
-void	ftpf_process_flag_alt(t_env *e)
+void	ftpf_process_flag_alt(t_ftpf_env *e)
 {
 	if (ft_strchr("oO", e->conversion))
 	{
@@ -102,7 +102,7 @@ void	ftpf_process_flag_alt(t_env *e)
 	}
 }
 
-void	ftpf_process_flag_plus(t_env *e)
+void	ftpf_process_flag_plus(t_ftpf_env *e)
 {
 	if (!e->isneg)
 	{

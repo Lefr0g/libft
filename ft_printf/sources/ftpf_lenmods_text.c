@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:55:05 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/26 17:46:52 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:49:28 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ftpf_manage_lenmod_c(va_list *ap, t_env *e)
+void	ftpf_manage_lenmod_c(va_list *ap, t_ftpf_env *e)
 {
 	int	len;
 
@@ -31,7 +31,7 @@ void	ftpf_manage_lenmod_c(va_list *ap, t_env *e)
 	}
 }
 
-void	ftpf_s_nullexception(t_env *e)
+void	ftpf_s_nullexception(t_ftpf_env *e)
 {
 	e->mod[0] = 0;
 	if (!e->precisflag)
@@ -45,7 +45,7 @@ void	ftpf_s_nullexception(t_env *e)
 	e->outputlen += ft_strlen(e->param->s);
 }
 
-void	ftpf_manage_lenmod_s(va_list *ap, t_env *e)
+void	ftpf_manage_lenmod_s(va_list *ap, t_ftpf_env *e)
 {
 	char	*str;
 
@@ -66,7 +66,7 @@ void	ftpf_manage_lenmod_s(va_list *ap, t_env *e)
 	}
 }
 
-void	ftpf_manage_lenmod_s_wide(va_list *ap, t_env *e)
+void	ftpf_manage_lenmod_s_wide(va_list *ap, t_ftpf_env *e)
 {
 	wchar_t	*wstr;
 

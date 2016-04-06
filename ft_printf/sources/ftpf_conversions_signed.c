@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:46:36 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/23 21:33:58 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:45:40 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ftpf_write_di_param(t_env *e)
+void	ftpf_write_di_param(t_ftpf_env *e)
 {
 	if (e->isneg)
 		ft_putchar(CONV_MINUS);
@@ -36,7 +36,7 @@ void	ftpf_write_di_param(t_env *e)
 	}
 }
 
-void	ftpf_convert_di(va_list *ap, t_env *e)
+void	ftpf_convert_di(va_list *ap, t_ftpf_env *e)
 {
 	ftpf_manage_lenmod_di(ap, e);
 	if (e->precisflag && !e->precision && !e->param->ll)

@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 16:00:44 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/23 21:55:55 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:49:02 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ftpf_manage_lenmod_di(va_list *ap, t_env *e)
+void	ftpf_manage_lenmod_di(va_list *ap, t_ftpf_env *e)
 {
 	char	*itoa_ret;
 
@@ -41,7 +41,7 @@ void	ftpf_manage_lenmod_di(va_list *ap, t_env *e)
 		ft_strdel(&itoa_ret);
 }
 
-void	ftpf_manage_lenmod_di_sub(va_list *ap, t_env *e, char **itoa_ret)
+void	ftpf_manage_lenmod_di_sub(va_list *ap, t_ftpf_env *e, char **itoa_ret)
 {
 	if (!ft_strcmp(e->mod, "h"))
 	{

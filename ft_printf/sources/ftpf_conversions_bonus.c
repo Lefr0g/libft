@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 21:09:41 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/23 21:10:13 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:45:17 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ftpf_convert_b(va_list *ap, t_env *e)
+void	ftpf_convert_b(va_list *ap, t_ftpf_env *e)
 {
 	if (!e->mod[0])
 	{

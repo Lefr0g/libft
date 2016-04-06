@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/05 11:46:30 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/28 20:37:02 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:44:52 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
 
 int		ft_printf(const char *restrict format, ...)
 {
-	t_env	e;
-	va_list	ap;
-	int		convlen;
-	int		step;
+	t_ftpf_env	e;
+	va_list		ap;
+	int			convlen;
+	int			step;
 
 	convlen = 0;
 	step = 0;
@@ -58,7 +58,7 @@ int		ft_printf(const char *restrict format, ...)
 	return (step + convlen);
 }
 
-void	ftpf_conversion_call(t_env *e, const char *restrict format,
+void	ftpf_conversion_call(t_ftpf_env *e, const char *restrict format,
 		va_list *ap, int *convlen)
 {
 	e->index++;

@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/11 12:56:31 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 19:30:32 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:48:39 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ftpf_reinit_env(t_env *e)
+int		ftpf_reinit_env(t_ftpf_env *e)
 {
 	e->conversion_function = NULL;
 	ft_bzero(e->param, sizeof(unsigned long long));
@@ -44,7 +44,7 @@ int		ftpf_reinit_env(t_env *e)
 **	WILL STILL BEHAVE (OR EVEN COMPILE) ON LINUX AT THIS POINT
 */
 
-int		ftpf_init_env(t_env *e)
+int		ftpf_init_env(t_ftpf_env *e)
 {
 	ftpf_init_convfunctions_pointers(e);
 	ftpf_init_mallocs(e);
@@ -71,7 +71,7 @@ int		ftpf_init_env(t_env *e)
 			|| !e->mod || !e->x_prefix);
 }
 
-void	ftpf_init_mallocs(t_env *e)
+void	ftpf_init_mallocs(t_ftpf_env *e)
 {
 	e->lenmods = ft_strdup("hljz");
 	e->flags = ft_strdup("#0- +");
@@ -91,7 +91,7 @@ void	ftpf_init_mallocs(t_env *e)
 **	for an easy callback.
 */
 
-void	ftpf_init_convfunctions_pointers(t_env *e)
+void	ftpf_init_convfunctions_pointers(t_ftpf_env *e)
 {
 	e->conv_funct_table['d'] = &(ftpf_convert_di);
 	e->conv_funct_table['D'] = &(ftpf_convert_di);
@@ -110,7 +110,7 @@ void	ftpf_init_convfunctions_pointers(t_env *e)
 	e->conv_funct_table['b'] = &(ftpf_convert_b);
 }
 
-void	ftpf_free_all(t_env *e)
+void	ftpf_free_all(t_ftpf_env *e)
 {
 	ft_memdel((void**)&e->conversions);
 	ft_memdel((void**)&e->lenmods);

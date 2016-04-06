@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 18:57:05 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 16:16:20 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:47:31 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 **	The function returns its current position on the format string.
 */
 
-int		ftpf_directives(const char *restrict format, va_list *ap, t_env *e)
+int		ftpf_directives(const char *restrict format, va_list *ap, t_ftpf_env *e)
 {
 	if (!ftpf_get_flags(format, e))
 		e->index++;
@@ -44,7 +44,8 @@ int		ftpf_directives(const char *restrict format, va_list *ap, t_env *e)
 	return (e->index);
 }
 
-void	ftpf_get_field_width(const char *restrict format, va_list *ap, t_env *e)
+void	ftpf_get_field_width(const char *restrict format, va_list *ap,
+		t_ftpf_env *e)
 {
 	char	*itoa_ret;
 
@@ -67,7 +68,8 @@ void	ftpf_get_field_width(const char *restrict format, va_list *ap, t_env *e)
 	}
 }
 
-void	ftpf_directives_action(const char *restrict f, va_list *ap, t_env *e)
+void	ftpf_directives_action(const char *restrict f, va_list *ap,
+		t_ftpf_env *e)
 {
 	if (ft_strchr(e->conversions, f[e->index]))
 	{
@@ -84,7 +86,8 @@ void	ftpf_directives_action(const char *restrict f, va_list *ap, t_env *e)
 		ftpf_directives(f, ap, e);
 }
 
-void	ftpf_get_precision(const char *restrict format, va_list *ap, t_env *e)
+void	ftpf_get_precision(const char *restrict format, va_list *ap,
+		t_ftpf_env *e)
 {
 	char	*itoa_ret;
 
@@ -111,7 +114,7 @@ void	ftpf_get_precision(const char *restrict format, va_list *ap, t_env *e)
 	e->index++;
 }
 
-void	ftpf_wrongchar_handler(const char *restrict format, t_env *e)
+void	ftpf_wrongchar_handler(const char *restrict format, t_ftpf_env *e)
 {
 	ftpf_process_flags(e);
 	e->precision = 0;

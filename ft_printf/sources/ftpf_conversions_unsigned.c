@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 20:49:04 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 16:18:15 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:46:29 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ftpf_convert_u(va_list *ap, t_env *e)
+void	ftpf_convert_u(va_list *ap, t_ftpf_env *e)
 {
 	ftpf_manage_lenmod_u(ap, e);
 	if (e->precisflag && !e->precision && !e->param->ull)
@@ -28,7 +28,7 @@ void	ftpf_convert_u(va_list *ap, t_env *e)
 		ftpf_manage_field_width(e);
 }
 
-void	ftpf_write_o_param(t_env *e)
+void	ftpf_write_o_param(t_ftpf_env *e)
 {
 	if (e->conversion == 'o')
 	{
@@ -43,7 +43,7 @@ void	ftpf_write_o_param(t_env *e)
 		ft_putoctal(e->param->ul);
 }
 
-void	ftpf_convert_o(va_list *ap, t_env *e)
+void	ftpf_convert_o(va_list *ap, t_ftpf_env *e)
 {
 	ftpf_manage_lenmod_o(ap, e);
 	if (e->precisflag && !e->precision && !e->param->ull && !e->alt)
@@ -59,7 +59,7 @@ void	ftpf_convert_o(va_list *ap, t_env *e)
 		ftpf_manage_field_width(e);
 }
 
-void	ftpf_convert_xp(va_list *ap, t_env *e)
+void	ftpf_convert_xp(va_list *ap, t_ftpf_env *e)
 {
 	ftpf_manage_lenmod_xp(ap, e);
 	ftpf_process_flags(e);
@@ -83,7 +83,7 @@ void	ftpf_convert_xp(va_list *ap, t_env *e)
 		e->outputlen += 2;
 }
 
-void	ftpf_write_xp_param(t_env *e)
+void	ftpf_write_xp_param(t_ftpf_env *e)
 {
 	if (ft_strchr("xp", e->conversion))
 	{

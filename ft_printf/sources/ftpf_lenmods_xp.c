@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 22:14:29 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/23 22:17:38 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:50:21 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ftpf_manage_lenmod_xp(va_list *ap, t_env *e)
+void	ftpf_manage_lenmod_xp(va_list *ap, t_ftpf_env *e)
 {
 	char	*itoa_ret;
 
@@ -39,7 +39,7 @@ void	ftpf_manage_lenmod_xp(va_list *ap, t_env *e)
 		ft_strdel(&itoa_ret);
 }
 
-void	ftpf_manage_lenmod_xp_sub(va_list *ap, t_env *e, char **itoa_ret)
+void	ftpf_manage_lenmod_xp_sub(va_list *ap, t_ftpf_env *e, char **itoa_ret)
 {
 	if (ft_strchr("xX", e->conversion) && !e->mod[0])
 	{

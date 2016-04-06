@@ -6,13 +6,13 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 14:49:12 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/25 17:01:29 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/06 11:46:01 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ftpf_convert_c(va_list *ap, t_env *e)
+void	ftpf_convert_c(va_list *ap, t_ftpf_env *e)
 {
 	ftpf_manage_lenmod_c(ap, e);
 	ftpf_process_flags(e);
@@ -33,7 +33,7 @@ void	ftpf_convert_c(va_list *ap, t_env *e)
 	}
 }
 
-void	ftpf_convert_s(va_list *ap, t_env *e)
+void	ftpf_convert_s(va_list *ap, t_ftpf_env *e)
 {
 	ftpf_manage_lenmod_s(ap, e);
 	ftpf_process_flags(e);
