@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/10 17:35:06 by amulin            #+#    #+#              #
-#    Updated: 2016/03/28 21:26:14 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/06 17:17:43 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,16 @@ endif
 # *************************** #
 
 NAME = libftprintf.a
+
+UIALIGN = \r\t\t
+
+UICEPTION = \033[34m └─ ft_printf\033[0m$(UIALIGN)
+
+UIWAIT = $(UIALIGN)[ \xE2\x8C\x9B ]
+
+UIOK = $(UIALIGN)[\033[32m \xE2\x9C\x94 \033[0m]
+
+UIINFO = $(UIALIGN)[\033[32m i \033[0m]
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -89,16 +99,26 @@ OBJECTS = $(PRINTOBJECTS) $(LIBFTOBJECTS)
 
 all: $(NAME)
 
+objects: $(OBJECTS)
+
 $(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+	@printf "$(UICEPTION)$(UIWAIT) Generating library archive $(NAME)"
+	@ar rcs $(NAME) $(OBJECTS)
+	@printf " $(UIOK)\n"
 
 $(OBJECTS): $(SOURCES) $(HEADERS) $(LIBFT)
-	$(CC) -g $(FLAGS) -c $(SOURCES) -I $(PRINTINCLUDIR) -I $(LIBFTINCLUDIR)
+	@printf "$(UICEPTION)$(UIWAIT) Creating objects for $(NAME)"
+	@$(CC) -g $(FLAGS) -c $(SOURCES) -I $(PRINTINCLUDIR) -I $(LIBFTINCLUDIR)
+	@printf " $(UIOK)\n"
 
 clean:
-	rm -f $(OBJECTS)
+	@printf "$(UICEPTION)$(UIWAIT) Deleting objects for ft_printf"
+	@rm -f $(OBJECTS)
+	@printf " $(UIOK)\n"
 
 fclean: clean
-	rm -f $(NAME)
+	@printf "$(UICEPTION)$(UIWAIT) Deleting $(NAME)"
+	@rm -f $(NAME)
+	@printf " $(UIOK)\n"
 
 re: fclean all

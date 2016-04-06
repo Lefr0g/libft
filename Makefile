@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/03/28 21:51:24 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/06 17:26:00 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,16 @@ endif
 
 
 NAME = libft.a
+
+UIALIGN = \r\t\t
+
+UICEPTION = \033[34m└─ libft\033[0m$(UIALIGN)
+
+UIWAIT = $(UIALIGN)[ \xE2\x8C\x9B ]
+
+UIOK = $(UIALIGN)[\033[32m \xE2\x9C\x94 \033[0m]
+
+UIINFO = $(UIALIGN)[\033[36m i \033[0m]
 
 FLAGS = -Wall -Werror -Wextra
 
@@ -83,20 +93,28 @@ FTPF_OBJECTS = $(addprefix $(FTPF_DIR), $(FTPF_OBJ))
 all: $(NAME)
 
 $(NAME): $(OBJECTS) $(FTPF_OBJECTS)
-	ar rcs $(NAME) $(OBJECTS) $(FTPF_OBJECTS)
+	@printf "$(UICEPTION)$(UIWAIT) Generating library archive $(NAME)"
+	@ar rcs $(NAME) $(OBJECTS) $(FTPF_OBJECTS)
+	@printf " $(UIOK)\n"
 
 $(OBJECTS): $(SRCS) $(INCLUDES)
-	$(CC) $(FLAGS) -c $(SRCS) -I $(INCLUDIR)
+	@printf "$(UICEPTION)$(UIWAIT) Creating objects for $(NAME)"
+	@$(CC) $(FLAGS) -c $(SRCS) -I $(INCLUDIR)
+	@printf " $(UIOK)\n"
 
 $(FTPF_OBJECTS): $(FTPF_HEADER) $(FTPF_SOURCES_ORIG)
-	make -C ft_printf
+	@printf "$(UICEPTION)$(UIINFO) Calling ft_printf Makefile...\n"
+	@make -C ft_printf objects
 
 clean:
-	rm -f $(OBJECTS)
-	make -C ft_printf clean
+	@printf "$(UICEPTION)$(UIWAIT) Deleting objects for $(NAME)"
+	@rm -f $(OBJECTS)
+	@printf " $(UIOK)\n"
+	@make -C ft_printf clean
 
 fclean: clean
-	rm -f $(NAME)
-	make -C ft_printf fclean
+	@printf "$(UICEPTION)$(UIWAIT) Deleting $(NAME)"
+	@rm -f $(NAME)
+	@printf " $(UIOK)\n"
 
 re: fclean all
