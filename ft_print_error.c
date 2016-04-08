@@ -6,19 +6,18 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 14:15:22 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/07 14:17:19 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/08 18:46:59 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <errno.h>
+#include "errmgmt.h"
 
 void	ft_print_error(char *progname, char *arg, int errnum)
 {
 	if (!progname && !errnum)
 	{
 		ft_putstr_fd("Fatal error: you accidentally the whole program.\n", 2);
-		ft_putstr_fd("            Just stay away from computers. Please.\n", 2);
+		ft_putstr_fd("             Please stay away from computers.\n", 2);
 	}
 	else if (!progname)
 	{

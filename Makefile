@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/04/07 20:09:58 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/08 17:46:01 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -205,7 +205,7 @@ $(ER_NAME): $(VA_OBJECTS) $(ER_OBJECTS)
 	@ar rcs $(ER_NAME) $(VA_OBJECTS) $(ER_OBJECTS)
 	@printf " $(UIOK)\n"
 
-$(ER_OBJECTS): $(ER_SOURCES) $(ER_INCLUDES)
+$(ER_OBJECTS): $(ER_SRCS) $(ER_INCLUDES)
 	@printf "$(UICEPTION)$(UIWAIT) Creating objects for errno-related functions"
 	@$(CC) $(FLAGS) -c $(ER_SRCS) -I $(INCLUDIR)
 	@printf " $(UIOK)\n"
