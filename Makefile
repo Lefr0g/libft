@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/04/08 17:46:01 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/11 16:12:15 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,15 +66,20 @@ FLAGS = -Wall -Werror -Wextra
 
 INCLUDIR = includes/
 
+SRCDIR = sources/
+
+OBJDIR = .objects/
 
 ################################################################## VANILLA LIBFT
+
+VA_DIR = $(addprefix $(SRCDIR), vanilla/)
 
 VA_SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c \
 		  ft_putstr_fd.c ft_putnbr_fd.c ft_putendl.c ft_putendl_fd.c \
 		  ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c \
 		  ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
 		  ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c ft_atoi.c \
-		  ft_strnew.c ft_strdel.c ft_strclr.c ft_itoa.c\
+		  ft_strnew.c ft_strdel.c ft_strclr.c ft_itoa.c \
 		  ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c \
 		  ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
 		  ft_strtrim.c ft_strsplit.c \
@@ -85,6 +90,8 @@ VA_SRCS = ft_putchar.c ft_putstr.c ft_putnbr.c ft_putchar_fd.c \
 		  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstiter.c \
 		  ft_lstappend.c ft_lstmap.c ft_lstadd.c
 
+VA_SOURCES = $(addprefix $(VA_DIR), $(VA_SRCS))
+
 VA_HEADER = libft.h
 
 VA_INCLUDES = $(addprefix $(INCLUDIR),$(VA_HEADER))
@@ -93,6 +100,8 @@ VA_OBJECTS = $(subst .c,.o,$(VA_SRCS))
 
 
 ##################################################### EXTENSION OF VANILLA LIBFT
+
+XT_DIR = $(addprefix $(SRCDIR), extra/)
 
 XT_SRCS = get_next_line.c \
 		  ft_abs.c ft_abs_ll.c ft_tabmax.c ft_tabmin.c ft_getmax.c \
@@ -105,6 +114,8 @@ XT_SRCS = get_next_line.c \
 		  ft_puthex.c ft_puthex_ull.c ft_putoctal.c ft_putbin.c \
 		  ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c \
 		  ft_find_double_str.c ft_parse_options.c
+
+XT_SOURCES = $(addprefix $(XT_DIR), $(XT_SRCS))
 
 XT_HEADER = libft.h
 
@@ -138,7 +149,11 @@ FTPF_OBJECTS = $(addprefix $(FTPF_DIR), $(FTPF_OBJ))
 
 ######################################################## ERRNO-RELATED FUNCTIONS
 
+ER_DIR = $(addprefix $(SRCDIR), errmgmt/)
+
 ER_SRCS = ft_print_error.c
+
+ER_SOURCES = $(addprefix $(ER_DIR), $(ER_SRCS))
 
 ER_HEADER = errmgmt.h
 
@@ -149,7 +164,9 @@ ER_OBJECTS = $(subst .c,.o,$(ER_SRCS))
 
 ################################################################# CONCATENATIONS
 
-ALL_OBJECTS = $(VA_OBJECTS) $(XT_OBJECTS) $(FTPF_OBJECTS) $(ER_OBJECTS)
+# $(FTPF_OBJECTS)
+
+ALL_OBJECTS = $(VA_OBJECTS) $(XT_OBJECTS) $(ER_OBJECTS) $(FTPF_OBJECTS)
 
 ALL_NAMES = $(NAME) $(FULL_NAME) $(VA_NAME) $(XT_NAME) $(FTPF_NAME) $(ER_NAME)
 
@@ -181,7 +198,7 @@ $(XT_NAME): $(VA_OBJECTS) $(XT_OBJECTS)
 
 $(XT_OBJECTS): $(XT_SOURCES) $(XT_INCLUDES)
 	@printf "$(UICEPTION)$(UIWAIT) Creating objects for extended functions"
-	@$(CC) $(FLAGS) -c $(XT_SRCS) -I $(INCLUDIR)
+	@$(CC) $(FLAGS) -c $(XT_SOURCES) -I $(INCLUDIR)
 	@printf " $(UIOK)\n"
 
 ft_printf: $(FTPF_NAME)
@@ -206,9 +223,9 @@ $(ER_NAME): $(VA_OBJECTS) $(ER_OBJECTS)
 	@ar rcs $(ER_NAME) $(VA_OBJECTS) $(ER_OBJECTS)
 	@printf " $(UIOK)\n"
 
-$(ER_OBJECTS): $(ER_SRCS) $(ER_INCLUDES)
+$(ER_OBJECTS): $(ER_SOURCES) $(ER_INCLUDES)
 	@printf "$(UICEPTION)$(UIWAIT) Creating objects for errno-related functions"
-	@$(CC) $(FLAGS) -c $(ER_SRCS) -I $(INCLUDIR)
+	@$(CC) $(FLAGS) -c $(ER_SOURCES) -I $(INCLUDIR)
 	@printf " $(UIOK)\n"
 
 vanilla: $(VA_NAME)
@@ -220,9 +237,9 @@ $(VA_NAME): $(VA_OBJECTS)
 	@ar rcs $(VA_NAME) $(VA_OBJECTS)
 	@printf " $(UIOK)\n"
 
-$(VA_OBJECTS): $(VA_SRCS) $(VA_INCLUDES)
+$(VA_OBJECTS): $(VA_SOURCES) $(VA_INCLUDES)
 	@printf "$(UICEPTION)$(UIWAIT) Creating objects for vanilla functions"
-	@$(CC) $(FLAGS) -c $(VA_SRCS) -I $(INCLUDIR)
+	@$(CC) $(FLAGS) -c $(VA_SOURCES) -I $(INCLUDIR)
 	@printf " $(UIOK)\n"
 
 

@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/10 17:35:06 by amulin            #+#    #+#              #
-#    Updated: 2016/04/06 17:17:43 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/11 16:12:08 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ LIBFTINCLUDIR = ../includes/
 
 LIBFTHEADERS = $(addprefix $(LIBFTINCLUDIR), $(LIBFTHDRS))
 
-LIBFTSRCS = ft_atoi.c ft_isdigit.c ft_itoa.c ft_putchar.c ft_putendl.c \
+LIBFTSRCS_VA = ft_atoi.c ft_isdigit.c ft_itoa.c ft_putchar.c ft_putendl.c \
 			ft_putendl_fd.c ft_putchar_fd.c \
 			ft_putstr.c ft_putnbr.c ft_strcmp.c ft_strdup.c ft_strlen.c \
 			ft_strnequ.c ft_strncmp.c \
@@ -76,20 +76,27 @@ LIBFTSRCS = ft_atoi.c ft_isdigit.c ft_itoa.c ft_putchar.c ft_putendl.c \
 			ft_bzero.c ft_memset.c ft_strchr.c ft_strncpy.c ft_memmove.c \
 			ft_memdel.c \
 			ft_memcpy.c ft_isalpha.c ft_strdel.c \
-			ft_uni_to_utf8.c ft_putwchar.c ft_putwstr.c ft_wstr_memsize.c \
+
+LIBFTSRCS_XT = ft_uni_to_utf8.c ft_putwchar.c ft_putwstr.c ft_wstr_memsize.c \
 			ft_wchar_utf8len.c ft_wstr_utf8len.c ft_wcslen.c ft_wcsncpy.c \
 			ft_utf8ncpy.c \
 			ft_getmax.c ft_itoa_ll.c ft_itoa_ull.c ft_putnbr_ll.c \
 			ft_putnbr_ull.c ft_puthex_ull.c ft_putoctal.c \
 			ft_abs.c ft_abs_ll.c ft_putbin.c \
 
+LIBFTSRCS = $(LIBFTSRCS_VA) $(LIBFTSRCS_XT)
+
+LIBFTSOURCES_VA = $(addprefix ../sources/vanilla/, $(LIBFTSRCS_VA))
+
+LIBFTSOURCES_XT = $(addprefix ../sources/extra/, $(LIBFTSRCS_XT))
+
+LIBFTSOURCES = $(LIBFTSOURCES_VA) $(LIBFTSOURCES_XT)
+
 HEADERS = $(PRINTHEADERS) $(LIBFTHEADERS)
 
-LIBFTSRCDIR = ../
+LIBFTOBJDIR = ../
 
-LIBFTSOURCES = $(addprefix $(LIBFTSRCDIR), $(LIBFTSRCS))
-
-LIBFTOBJECTS = $(subst .c,.o, $(LIBFTSRCS))
+LIBFTOBJECTS = $(addprefix $(LIBFTOBJDIR), $(subst .c,.o, $(LIBFTSRCS)))
 
 SOURCES = $(PRINTSOURCES) $(LIBFTSOURCES)
 
@@ -101,15 +108,18 @@ all: $(NAME)
 
 objects: $(OBJECTS)
 
-$(NAME): $(OBJECTS)
+$(NAME): $(LIBFTOBJECTS) $(PRINTOBJECTS)
 	@printf "$(UICEPTION)$(UIWAIT) Generating library archive $(NAME)"
 	@ar rcs $(NAME) $(OBJECTS)
 	@printf " $(UIOK)\n"
 
-$(OBJECTS): $(SOURCES) $(HEADERS) $(LIBFT)
+$(PRINTOBJECTS): $(SOURCES) $(HEADERS) $(LIBFT)
 	@printf "$(UICEPTION)$(UIWAIT) Creating objects for $(NAME)"
-	@$(CC) -g $(FLAGS) -c $(SOURCES) -I $(PRINTINCLUDIR) -I $(LIBFTINCLUDIR)
+	@$(CC) -g $(FLAGS) -c $(PRINTSOURCES) -I $(PRINTINCLUDIR) -I $(LIBFTINCLUDIR)
 	@printf " $(UIOK)\n"
+
+$(LIBFTOBJECTS):
+	@make -C .. extra
 
 clean:
 	@printf "$(UICEPTION)$(UIWAIT) Deleting objects for ft_printf"
