@@ -158,4 +158,11 @@ void				ft_putnbr_ll(long long n);
 char				*ft_itoa_ll(long long int n, unsigned int base);
 char				*ft_itoa_ull(unsigned long long n, unsigned int base);
 
+/*
+ * CLI management
+*/
+
+char			ft_parse_options(char **tested, char **valid, char ***checked);
+char			*ft_find_double_str(char *needle, char **haystack);
+
 #endif

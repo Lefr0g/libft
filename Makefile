@@ -103,7 +103,8 @@ XT_SRCS = get_next_line.c \
 		  ft_utf8ncpy.c \
 		  ft_itoa_ll.c ft_itoa_ull.c ft_putnbr_ll.c ft_putnbr_ull.c \
 		  ft_puthex.c ft_puthex_ull.c ft_putoctal.c ft_putbin.c \
-		  ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c
+		  ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c \
+		  ft_find_double_str.c ft_parse_options.c
 
 XT_HEADER = libft.h
 
