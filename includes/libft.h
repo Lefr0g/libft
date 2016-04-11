@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:26:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/08 17:31:38 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/11 13:15:58 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,10 +159,10 @@ char				*ft_itoa_ll(long long int n, unsigned int base);
 char				*ft_itoa_ull(unsigned long long n, unsigned int base);
 
 /*
- * CLI management
+** CLI management
 */
-
-char			ft_parse_options(char **tested, char **valid, char ***checked);
-char			*ft_find_double_str(char *needle, char **haystack);
+char				ft_parse_options(char **tested, char **valid,
+		char ***checked);
+char				*ft_find_double_str(char *needle, char **haystack);
 
 #endif

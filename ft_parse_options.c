@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parse_options.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/04/11 13:11:07 by amulin            #+#    #+#             */
+/*   Updated: 2016/04/11 13:14:16 by amulin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- * Subfunction for ft_parse_options, dedicated to testing the validity of
- * the 'tested' argument as an option, then duplicating if (if valid) into the
- * program's 'stored' table.
- * If the 'tested' argument is not a valid option, the function returns 1
+** Subfunction for ft_parse_options, dedicated to testing the validity of
+** the 'tested' argument as an option, then duplicating if (if valid) into the
+** program's 'stored' table.
+** If the 'tested' argument is not a valid option, the function returns 1
 */
 
 static int	get_options(int *i, char **valid, char *tested, char **stored)
@@ -28,10 +39,11 @@ static int	get_options(int *i, char **valid, char *tested, char **stored)
 }
 
 /*
- * Subfunction for ft_parse_options that allocates sufficient memory to store
- * all valid options into a string array.
- * Notice that it will probably allocate more memory than necessary.
+** Subfunction for ft_parse_options that allocates sufficient memory to store
+** all valid options into a string array.
+** Notice that it will probably allocate more memory than necessary.
 */
+
 static int	allocate_storage(char **tested, char ***stored)
 {
 	int	i;
@@ -56,33 +68,33 @@ static int	allocate_storage(char **tested, char ***stored)
 }
 
 /*
- * This function ensures options given as program arguments are supported,
- * and retrieves supported options from the command line argument list.
- *
- * 'tested' is supposed to be main's argv, but it can be any string table
- * ending with a NULL pointer. However the first string of the array won't be
- * inspected.
- * 'valid' is the string table of supported options, it must be terminated by
- * an empty string.
- * 'checked' is a pointer to an unallocated string table that will store the
- * options validated by the function.
- *
- * The function ignores 'tested' stings unless they begin with a '-'
- * Characters following a '-' are treated individually
- * Characters following a '--' are treated as a single string
- * Upon reading '--\0' the function stops.
- *
- * For norme compliance, the flag indicating a '--\0' encounter was replaced by
- * setting k to a negative value.
- * 
- * The function returns '\0' when all options are valid, '-' if a long option
- * is invalid, or the char corresponding to an invalid short option.
- *
- * Note: this function is a quick substitute to an upcoming (TODO)
- * reimplementation of the cleaner getopt() and getopt_long() functions.
+** This function ensures options given as program arguments are supported,
+** and retrieves supported options from the command line argument list.
+** -
+** 'tested' is supposed to be main's argv, but it can be any string table
+** ending with a NULL pointer. However the first string of the array won't be
+** inspected.
+** 'valid' is the string table of supported options, it must be terminated by
+** an empty string.
+** 'checked' is a pointer to an unallocated string table that will store the
+** options validated by the function.
+** -
+** The function ignores 'tested' stings unless they begin with a '-'
+** Characters following a '-' are treated individually
+** Characters following a '--' are treated as a single string
+** Upon reading '--\0' the function stops.
+** -
+** For norme compliance, the flag indicating a '--\0' encounter was replaced by
+** setting k to a negative value.
+** -
+** The function returns '\0' when all options are valid, '-' if a long option
+** is invalid, or the char corresponding to an invalid short option.
+** -
+** Note: this function is a quick substitute to an upcoming (TODO)
+** reimplementation of the cleaner getopt() and getopt_long() functions.
 */
 
-char	ft_parse_options(char **tested, char **valid, char ***stored)
+char		ft_parse_options(char **tested, char **valid, char ***stored)
 {
 	int		i;
 	int		j;
@@ -109,5 +121,3 @@ char	ft_parse_options(char **tested, char **valid, char ***stored)
 	}
 	return (0);
 }
-
-
