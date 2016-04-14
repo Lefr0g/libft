@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:19:12 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/14 18:58:45 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 21:02:49 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,8 @@ char				*ft_itoa_ull(unsigned long long n, unsigned int base);
 char				ft_parse_options(char **tested, char **valid,
 		char ***checked);
 char				*ft_find_double_str(char *needle, char **haystack);
+
+char				**ft_strarray_dup(char **src);
+void				ft_strarray_del(char ***array);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 13:11:07 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/14 18:56:48 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 20:57:09 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ static int	allocate_storage(char **tested, char ***stored)
 ** This function ensures options given as program arguments are supported,
 ** and retrieves supported options from the command line argument list.
 ** -
-** 'tested' is supposed to be main's argv, but it can be any string table
-** ending with a NULL pointer. However the first string of the array won't be
-** inspected.
+** 'tested' is supposed to be main's argv, ideally a copy of it,  but it can
+** be any string table ending with a NULL pointer. However the first string
+** of the array won't be inspected.
 ** 'valid' is the string table of supported options, it must be terminated by
 ** an empty string.
 ** 'checked' is a pointer to an unallocated string table that will store the

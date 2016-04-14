@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/04/14 18:30:15 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/14 21:03:56 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,7 +113,8 @@ XT_SRCS = get_next_line.c \
 		  ft_itoa_ll.c ft_itoa_ull.c ft_putnbr_ll.c ft_putnbr_ull.c \
 		  ft_puthex.c ft_puthex_ull.c ft_putoctal.c ft_putbin.c \
 		  ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c \
-		  ft_find_double_str.c ft_parse_options.c
+		  ft_find_double_str.c ft_parse_options.c \
+		  ft_strarray_dup.c ft_strarray_del.c
 
 XT_SOURCES = $(addprefix $(XT_DIR), $(XT_SRCS))
 
