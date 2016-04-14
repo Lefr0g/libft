@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/06/10 17:35:06 by amulin            #+#    #+#              #
-#    Updated: 2016/04/11 16:12:08 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/14 18:47:15 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ PRINTSOURCES = $(addprefix $(PRINTSRCDIR), $(PRINTSRCS))
 
 PRINTOBJECTS = $(subst .c,.o, $(PRINTSRCS))
 
-LIBFTHDRS = libft.h
+LIBFTHDRS = libft.h libft_extra.h
 
 LIBFTINCLUDIR = ../includes/
 

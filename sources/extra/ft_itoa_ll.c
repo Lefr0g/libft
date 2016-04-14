@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/23 19:13:21 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 14:21:27 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:34:06 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 static void		my_process(long long int n, char *result, long long int i,
 		unsigned int base)

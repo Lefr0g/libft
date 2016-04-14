@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/04/11 16:12:15 by amulin           ###   ########.fr        #
+#    Updated: 2016/04/14 18:30:15 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,7 +117,7 @@ XT_SRCS = get_next_line.c \
 
 XT_SOURCES = $(addprefix $(XT_DIR), $(XT_SRCS))
 
-XT_HEADER = libft.h
+XT_HEADER = libft_extra.h
 
 XT_INCLUDES = $(addprefix $(INCLUDIR),$(XT_HEADER))
 

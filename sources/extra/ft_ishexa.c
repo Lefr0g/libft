@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 16:51:49 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/07 16:54:58 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:33:48 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 int	ft_ishexa(int c)
 {

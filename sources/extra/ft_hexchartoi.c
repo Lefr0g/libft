@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 17:24:36 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/07 18:08:46 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:33:33 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 int	ft_hexchartoi(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 13:11:07 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/11 13:14:16 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:56:48 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 /*
 ** Subfunction for ft_parse_options, dedicated to testing the validity of
@@ -92,6 +92,13 @@ static int	allocate_storage(char **tested, char ***stored)
 ** -
 ** Note: this function is a quick substitute to an upcoming (TODO)
 ** reimplementation of the cleaner getopt() and getopt_long() functions.
+** -
+** -
+** ****************************************************************************
+** ATTENTION : the function also removes the valid options from the 'tested'
+** string array. This will leave "holes" in the input array. Make sure to
+** process this array correctly after calling ft_parse_options().
+** ****************************************************************************
 */
 
 char		ft_parse_options(char **tested, char **valid, char ***stored)
@@ -118,6 +125,7 @@ char		ft_parse_options(char **tested, char **valid, char ***stored)
 			while (tested[i][++j] && (buf[0] = tested[i][j]))
 				if (get_options(&k, valid, buf, *stored))
 					return (buf[0]);
+		ft_strclr(tested[i]);
 	}
 	return (0);
 }

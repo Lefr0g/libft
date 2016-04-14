@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 17:13:11 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/18 17:13:12 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:39:01 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 wchar_t	*ft_wcsncpy(wchar_t *dst, const wchar_t *src, size_t n)
 {

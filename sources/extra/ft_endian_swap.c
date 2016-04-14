@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 17:59:59 by amulin            #+#    #+#             */
-/*   Updated: 2016/02/25 18:01:22 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:32:23 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 unsigned int	ft_endian_swap(unsigned int input)
 {

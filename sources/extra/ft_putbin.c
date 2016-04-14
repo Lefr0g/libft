@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 14:57:44 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/25 16:58:21 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:35:23 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 /*
 **	This function is supposed to be used with type casting

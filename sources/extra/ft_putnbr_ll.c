@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/05 11:30:24 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 14:21:55 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:36:04 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 void	ft_putnbr_ll(long long n)
 {

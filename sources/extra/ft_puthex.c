@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 13:36:01 by amulin            #+#    #+#             */
-/*   Updated: 2015/12/03 13:56:06 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:35:33 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 void	ft_puthex(unsigned int n, char *mode)
 {

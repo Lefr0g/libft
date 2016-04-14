@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 19:38:17 by amulin            #+#    #+#             */
-/*   Updated: 2016/01/06 19:40:52 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:37:20 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 int		ft_tabmin(int *t, int siz)
 {

@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/24 18:38:30 by amulin            #+#    #+#             */
-/*   Updated: 2015/06/24 18:38:32 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:31:57 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 int	ft_abs(int i)
 {

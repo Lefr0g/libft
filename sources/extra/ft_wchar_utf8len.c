@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 19:09:59 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/24 19:10:13 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:38:04 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 size_t	ft_wchar_utf8len(wchar_t const wc)
 {

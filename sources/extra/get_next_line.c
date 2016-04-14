@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 11:04:13 by amulin            #+#    #+#             */
-/*   Updated: 2015/02/07 15:54:48 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:39:54 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 int		gnl_lenline(const char *s)
 {

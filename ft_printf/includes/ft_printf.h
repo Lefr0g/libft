@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/05 11:46:15 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/06 11:54:10 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:44:50 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@
 # endif
 
 # include "libft.h"
+# include "libft_extra.h"
 # include <stdarg.h>
 
 typedef union	u_param

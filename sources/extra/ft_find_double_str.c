@@ -6,11 +6,11 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 13:10:50 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/11 13:14:39 by amulin           ###   ########.fr       */
+/*   Updated: 2016/04/14 18:32:47 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_extra.h"
 
 /*
 ** Subfunction for ft_parse_options, designed to avoid doubles in the
