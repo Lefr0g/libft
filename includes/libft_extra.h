@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:19:12 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/14 21:02:49 by amulin           ###   ########.fr       */
+/*   Updated: 2016/05/10 15:58:47 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,13 @@ int					ft_hexbytetoi(char *hexbyte);
 void				ft_print_memory(const void *addr, size_t size);
 void				ft_puthex(unsigned int n, char *mode);
 int					get_next_line(int const fd, char **line);
+
+/*
+**	Lists
+*/
+t_list				*ft_lstdetach(t_list *elem);
+t_list				*ft_lstinsertright(t_list *elem, t_list *pos);
+int					ft_lstsort(t_list **alst, int content_offset);
 
 /*
 **	Made for ft_printf
