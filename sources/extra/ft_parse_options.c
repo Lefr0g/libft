@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 13:11:07 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/14 20:57:09 by amulin           ###   ########.fr       */
+/*   Updated: 2016/05/10 16:42:37 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	allocate_storage(char **tested, char ***stored)
 ** of the array won't be inspected.
 ** 'valid' is the string table of supported options, it must be terminated by
 ** an empty string.
-** 'checked' is a pointer to an unallocated string table that will store the
+** 'stored' is a pointer to an unallocated string table that will store the
 ** options validated by the function.
 ** -
 ** The function ignores 'tested' stings unless they begin with a '-'
