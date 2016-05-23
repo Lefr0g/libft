@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 15:58:55 by amulin            #+#    #+#             */
-/*   Updated: 2016/03/31 14:24:42 by amulin           ###   ########.fr       */
+/*   Updated: 2016/05/23 16:43:08 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	ft_putstr(char const *s)
 {
 	int	len;
-	int	i;
 
-	i = 0;
 	if (s != NULL)
 	{
 		len = ft_strlen(s);
