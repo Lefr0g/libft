@@ -27,7 +27,8 @@ static int	sub_elemmove(t_list **alst, t_list **run, t_list **ref, int ofst)
 		return (1);
 	while (*ref)
 	{
-		if (ft_strcmp((char*)((*ref)->content + ofst), (char*)((*run)->content + ofst)) < 0)
+		if (ft_strcmp((char*)((*ref)->content + ofst),
+					(char*)((*run)->content + ofst)) > 0)
 		{
 			ft_lstinsertright(*run, *ref);
 			*ref = NULL;
@@ -44,8 +45,8 @@ static int	sub_elemmove(t_list **alst, t_list **run, t_list **ref, int ofst)
 
 /*
 ** Cette fonction doit pouvoir realiser un tri par insersion sur la liste passee
-** en parametre, en utilisant comme critere l'element de la structure 'content'
-** designe par son decalage par rapport au pointeur sur 'content'.
+** en parametre, en utilisant comme critere contenu du pointeur designe par 
+** son decalage par rapport au pointeur sur 'content'.
 ** *
 ** Le mecanisme est le meme que pour ft_lstsort_int(), a la difference qu'ici le
 ** tri se fait de maniere lexicographique
@@ -66,7 +67,10 @@ int			ft_lstsort_str(t_list **alst, int content_offset)
 					(char*)(run_ptr->content + content_offset)) > 0)
 		{
 			if (sub_elemmove(alst, &run_ptr, &ref_ptr, content_offset))
+			{
+				ft_printf("Error in lstsort\n");
 				return (1);
+			}
 		}
 		else
 		{

@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+/*
 int	ft_strcmp(const char *s1, const char *s2)
 {
 	size_t			i;
@@ -30,4 +31,21 @@ int	ft_strcmp(const char *s1, const char *s2)
 		i++;
 	}
 	return (0);
+}
+*/
+
+#include <stdio.h>
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+	int	len;
+	int	ret;
+
+	len = (ft_strlen(s1) > ft_strlen(s2)) ? ft_strlen(s2) : ft_strlen(s1);
+	i = -1;
+	while (++i < len)
+		if ((ret = s1[i] - s2[i]))
+			return (ret);
+	return (s1[i] - s2[i]);
 }
