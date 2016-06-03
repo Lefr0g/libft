@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/05/10 15:55:46 by amulin           ###   ########.fr        #
+#    Updated: 2016/06/03 17:27:05 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,7 +104,7 @@ VA_OBJECTS = $(subst .c,.o,$(VA_SRCS))
 XT_DIR = $(addprefix $(SRCDIR), extra/)
 
 XT_SRCS = get_next_line.c \
-		  ft_abs.c ft_abs_ll.c ft_tabmax.c ft_tabmin.c ft_getmax.c \
+		  ft_abs.c ft_abs_ll.c ft_tabmax.c ft_tabmin.c ft_getmax.c ft_getmin.c \
 		  ft_print_memory.c \
 		  ft_endian_swap.c \
 		  ft_uni_to_utf8.c ft_putwchar.c ft_putwstr.c ft_wstr_memsize.c \

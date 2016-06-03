@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:19:12 by amulin            #+#    #+#             */
-/*   Updated: 2016/05/10 15:58:47 by amulin           ###   ########.fr       */
+/*   Updated: 2016/06/03 17:26:45 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int					ft_lstsort(t_list **alst, int content_offset);
 **	Made for ft_printf
 */
 int					ft_getmax(int a, int b);
+int					ft_getmin(int a, int b);
 void				ft_puthex_ull(unsigned long long int n, char *mode);
 void				ft_putoctal(unsigned long long n);
 void				ft_putnbr_ull(unsigned long long int n);
