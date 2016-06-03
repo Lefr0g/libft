@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 17:21:52 by amulin            #+#    #+#             */
-/*   Updated: 2016/05/10 15:53:50 by amulin           ###   ########.fr       */
+/*   Updated: 2016/06/03 18:50:46 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	sub_elemmove(t_list **alst, t_list **run, t_list **ref, int ofst)
 ** 	- Ainsi de suite
 */
 
-int			ft_lstsort(t_list **alst, int content_offset)
+int			ft_lstsort_int(t_list **alst, int content_offset)
 {
 	t_list			*run_ptr;
 	t_list			*ref_ptr;
