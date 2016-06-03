@@ -17,23 +17,24 @@
 ** and repositioning.
 */
 
-static int	sub_elemmove(t_list **alst, t_list **run, t_list **ref, int ofst)
+static int	sub_elemmove_s(t_list **alst, t_list **run, t_list **ref, int ofst)
 {
 	t_list	*pos;
 
 	pos = NULL;
 	pos = (*run)->next;
-	if (!ft_lstdetach(*run))
+	if (ft_printf("DETACHING..\n") && !ft_lstdetach(*run))
 		return (1);
 	while (*ref)
 	{
 		if (ft_strcmp((char*)((*ref)->content + ofst),
-					(char*)((*run)->content + ofst)) > 0)
+					(char*)((*run)->content + ofst)) <= 0)
 		{
 			ft_lstinsertright(*run, *ref);
+			ft_printf("insertright\n");
 			*ref = NULL;
 		}
-		else if (!(*ref = (*ref)->prev))
+		else if (!(*ref = (*ref)->prev) && ft_printf("lstadd\n"))
 			ft_lstadd(alst, *run);
 	}
 	if ((*run = pos))
@@ -66,7 +67,7 @@ int			ft_lstsort_str(t_list **alst, int content_offset)
 		if (ft_strcmp((char*)(ref_ptr->content + content_offset),
 					(char*)(run_ptr->content + content_offset)) > 0)
 		{
-			if (sub_elemmove(alst, &run_ptr, &ref_ptr, content_offset))
+			if (sub_elemmove_s(alst, &run_ptr, &ref_ptr, content_offset))
 			{
 				ft_printf("Error in lstsort\n");
 				return (1);
