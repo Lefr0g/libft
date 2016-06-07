@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/06 17:21:52 by amulin            #+#    #+#             */
-/*   Updated: 2016/06/03 19:37:34 by amulin           ###   ########.fr       */
+/*   Updated: 2016/06/07 20:40:43 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,17 @@ static int	sub_elemmove_s(t_list **alst, t_list **run, t_list **ref, int ofst)
 
 	pos = NULL;
 	pos = (*run)->next;
-	if (ft_printf("DETACHING..\n") && !ft_lstdetach(*run))
+	if (!ft_lstdetach(*run))
 		return (1);
 	while (*ref)
 	{
-		if (ft_strcmp(*((char**)((*ref)->content + ofst)),
-					*((char**)((*run)->content + ofst))) <= 0)
+		if (ft_strcmp(**((char***)((*ref)->content + ofst)),
+					**((char***)((*run)->content + ofst))) <= 0)
 		{
 			ft_lstinsertright(*run, *ref);
-			ft_printf("insertright\n");
 			*ref = NULL;
 		}
-		else if (!(*ref = (*ref)->prev) && ft_printf("lstadd\n"))
+		else if (!(*ref = (*ref)->prev))
 			ft_lstadd(alst, *run);
 	}
 	if ((*run = pos))
@@ -46,7 +45,7 @@ static int	sub_elemmove_s(t_list **alst, t_list **run, t_list **ref, int ofst)
 
 /*
 ** Cette fonction doit pouvoir realiser un tri par insersion sur la liste passee
-** en parametre, en utilisant comme critere contenu du pointeur designe par 
+** en parametre, en utilisant comme critere contenu du pointeur designe par
 ** son decalage par rapport au pointeur sur 'content'.
 ** *
 ** Dans le cas present, on considere qu'on accede indirectement aux chaines de
@@ -62,38 +61,23 @@ int			ft_lstsort_str(t_list **alst, int content_offset)
 	t_list			*run_ptr;
 	t_list			*ref_ptr;
 
-	char	**tab;
-
 	if (!alst || !(*alst) || !(*alst)->next)
 		return (1);
 	ref_ptr = *alst;
 	run_ptr = ref_ptr->next;
 	while (run_ptr)
 	{
-		ft_printf("Check before lstsort evaluation\n");
-		ft_printf("ref pointer at %p\n", ref_ptr);
-		ft_printf("run pointer at %p\n", run_ptr);
-		tab = ref_ptr->content + content_offset;
-		ft_printf("check\n");
-		ft_printf("tab pointer at %p\n", tab);
-		ft_printf("comparing %p and %p\n", (*(char**)(ref_ptr->content + content_offset)), (*(char**)(run_ptr->content + content_offset)));
-		if (ft_strcmp(*((char**)(ref_ptr->content + content_offset)),
-					*((char**)(run_ptr->content + content_offset))) > 0)
+		if (ft_strcmp(**(char***)(ref_ptr->content + content_offset),
+					**(char***)(run_ptr->content + content_offset)) > 0)
 		{
-			ft_printf("Check true\n");
 			if (sub_elemmove_s(alst, &run_ptr, &ref_ptr, content_offset))
-			{
-				ft_printf("Error in lstsort\n");
 				return (1);
-			}
 		}
 		else
 		{
-			ft_printf("Check false\n");
 			run_ptr = run_ptr->next;
 			ref_ptr = ref_ptr->next;
 		}
-		ft_printf("Check after lstsort evaluation\n");
 	}
 	return (0);
 }
