@@ -12,7 +12,7 @@
 
 #include "errmgmt.h"
 
-void	ft_print_error(char *progname, char *arg, int errnum)
+int	ft_print_error(char *progname, char *arg, int errnum)
 {
 	if (!progname && !errnum)
 	{
@@ -37,4 +37,5 @@ void	ft_print_error(char *progname, char *arg, int errnum)
 		}
 		ft_putstr_fd("\n", 2);
 	}
+	return(errnum);
 }

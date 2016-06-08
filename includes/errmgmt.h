@@ -16,6 +16,6 @@
 # include "libft.h"
 # include <errno.h>
 
-void	ft_print_error(char *progname, char *arg, int errnum);
+int	ft_print_error(char *progname, char *arg, int errnum);
 
 #endif
