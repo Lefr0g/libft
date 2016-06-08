@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/07 14:15:22 by amulin            #+#    #+#             */
-/*   Updated: 2016/04/08 18:46:59 by amulin           ###   ########.fr       */
+/*   Updated: 2016/06/08 19:27:41 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ int	ft_print_error(char *progname, char *arg, int errnum)
 		}
 		ft_putstr_fd("\n", 2);
 	}
-	return(errnum);
+	return (errnum);
 }
