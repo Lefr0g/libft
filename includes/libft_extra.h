@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:19:12 by amulin            #+#    #+#             */
-/*   Updated: 2016/06/03 18:59:07 by amulin           ###   ########.fr       */
+/*   Updated: 2016/06/09 18:54:27 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int					get_next_line(int const fd, char **line);
 */
 t_list				*ft_lstdetach(t_list *elem);
 t_list				*ft_lstinsertright(t_list *elem, t_list *pos);
-int					ft_lstsort_int(t_list **alst, int content_offset);
-int					ft_lstsort_str(t_list **alst, int content_offset);
+int					ft_lstsort(t_list **alst, int content_offset,
+		int (*compare)(void*, void*));
 
 /*
 **	Made for ft_printf

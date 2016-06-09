@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/06 17:21:52 by amulin            #+#    #+#             */
-/*   Updated: 2016/06/03 18:50:46 by amulin           ###   ########.fr       */
+/*   Created: 2016/06/09 17:52:14 by amulin            #+#    #+#             */
+/*   Updated: 2016/06/09 18:51:22 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,50 @@
 ** and repositioning.
 */
 
-static int	sub_elemmove(t_list **alst, t_list **run, t_list **ref, int ofst)
+static t_list		*sub_elemmove(t_list **run, t_list **ref, int ofst,
+		int (*compare)(void*, void*))
 {
 	t_list	*pos;
+	t_list	*alst;
 
-	pos = NULL;
+	alst = *ref;
+	while (alst->prev)
+		alst = alst->prev;
 	pos = (*run)->next;
 	if (!ft_lstdetach(*run))
-		return (1);
+		return (NULL);
 	while (*ref)
 	{
-		if (*(int*)((*ref)->content + ofst) < *(int*)((*run)->content + ofst))
+		if (compare((void*)((*ref)->content + ofst),
+					(void*)((*run)->content + ofst)) <= 0)
 		{
 			ft_lstinsertright(*run, *ref);
 			*ref = NULL;
 		}
 		else if (!(*ref = (*ref)->prev))
-			ft_lstadd(alst, *run);
+			ft_lstadd(&alst, *run);
 	}
 	if ((*run = pos))
 		*ref = (*run)->prev;
 	else
 		*ref = NULL;
-	return (0);
+	return (alst);
 }
 
 /*
 ** Cette fonction doit pouvoir realiser un tri par insersion sur la liste passee
-** en parametre, en utilisant comme critere l'element de la structure 'content'
-** designe par son decalage par rapport au pointeur sur 'content'.
+** en parametre, en utilisant comme critere contenu du pointeur designe par
+** son decalage par rapport au pointeur sur 'content'
+** La comparaison entre les 2 valeurs est effectuee par la fonction dont le
+** pointeur est donne en parametre.
+** Cette fonction a l'avantage d'etre generique, elle est totalement insensible
+** au type de donnees a comparer.
 ** *
-** Idealement, la fonction prendra aussi en parametre un pointeur vers la
-** fonction d'evaluation a utiliser (tri d'ints, tri lexicographique...)
-** *
-** Algo tri:
-** 	- On part du deuxieme element, et on parcour vers la droite
-** 	- Si la valeur de l'element en cours est inferieur au precedent
-** 		- on detache l'element en cours
-** 		- on parcour la liste vers la gauche
-** 	- Une fois a la bonne position, on insere l'element a sa place
-** 	- On revient au bout de la liste triee, et on considere le prochain element
-** 	- Ainsi de suite
+** Cette fonction de tri a ete creee dans le cadre du projet ft_ls
 */
 
-int			ft_lstsort_int(t_list **alst, int content_offset)
+int					ft_lstsort(t_list **alst, int content_offset,
+		int (*compare)(void*, void*))
 {
 	t_list			*run_ptr;
 	t_list			*ref_ptr;
@@ -71,10 +71,11 @@ int			ft_lstsort_int(t_list **alst, int content_offset)
 	run_ptr = ref_ptr->next;
 	while (run_ptr)
 	{
-		if (*(int*)(ref_ptr->content + content_offset) >
-				*(int*)(run_ptr->content + content_offset))
+		if (compare((void*)(ref_ptr->content + content_offset),
+					(void*)(run_ptr->content + content_offset)) > 0)
 		{
-			if (sub_elemmove(alst, &run_ptr, &ref_ptr, content_offset))
+			if (!(*alst = sub_elemmove(&run_ptr, &ref_ptr,
+							content_offset, compare)))
 				return (1);
 		}
 		else
