@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 13:11:07 by amulin            #+#    #+#             */
-/*   Updated: 2016/05/10 16:42:37 by amulin           ###   ########.fr       */
+/*   Updated: 2016/06/17 19:51:08 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /*
 ** Subfunction for ft_parse_options, dedicated to testing the validity of
-** the 'tested' argument as an option, then duplicating if (if valid) into the
+** the 'tested' argument as an option, then duplicating it (if valid) into the
 ** program's 'stored' table.
 ** If the 'tested' argument is not a valid option, the function returns 1
 */
 
-static int	get_options(int *i, char **valid, char *tested, char **stored)
+static int	get_opts(int *i, char **valid, char *tested, char **stored)
 {
 	int	j;
 	int	match;
@@ -79,13 +79,13 @@ static int	allocate_storage(char **tested, char ***stored)
 ** 'stored' is a pointer to an unallocated string table that will store the
 ** options validated by the function.
 ** -
-** The function ignores 'tested' stings unless they begin with a '-'
+** The function ignores 'tested' strings unless they begin with a '-'
 ** Characters following a '-' are treated individually
 ** Characters following a '--' are treated as a single string
 ** Upon reading '--\0' the function stops.
 ** -
 ** For norme compliance, the flag indicating a '--\0' encounter was replaced by
-** setting k to a negative value.
+** setting k (i[2]) to a negative value.
 ** -
 ** The function returns '\0' when all options are valid, '-' if a long option
 ** is invalid, or the char corresponding to an invalid short option.
@@ -103,29 +103,29 @@ static int	allocate_storage(char **tested, char ***stored)
 
 char		ft_parse_options(char **tested, char **valid, char ***stored)
 {
-	int		i;
-	int		j;
-	int		k;
+	int		i[3];
 	char	buf[2];
 
-	k = 0;
-	if (!(i = 0) && allocate_storage(tested, stored))
+	i[2] = 0;
+	if (!(i[0] = 0) && allocate_storage(tested, stored))
 		return ('!');
 	ft_bzero(buf, 2);
-	while (tested[++i] && (k = (tested[i][0] == '-' ? k : -1)) >= 0)
+	while (tested[++i[0]] && (i[2] = (tested[i[0]][0] == '-' ? i[2] : -1)) >= 0)
 	{
-		j = 0;
-		if (tested[i][0] && tested[i][1] == '-'
-				&& ((k = !tested[i][2] ? -1 : k) >= 0 || 1))
+		if (ft_strlen(tested[i[0]]) == 1)
+			return (0);
+		i[1] = 0;
+		if (tested[i[0]][0] && tested[i[0]][1] == '-'
+				&& ((i[2] = !tested[i[0]][2] ? -1 : i[2]) >= 0 || 1))
 		{
-			if (get_options(&k, valid, &tested[i][2], *stored) && k >= 0)
+			if (get_opts(&i[2], valid, &tested[i[0]][2], *stored) && i[2] >= 0)
 				return ('-');
 		}
-		else if (tested[i][1])
-			while (tested[i][++j] && (buf[0] = tested[i][j]))
-				if (get_options(&k, valid, buf, *stored))
+		else if (tested[i[0]][1])
+			while (tested[i[0]][++i[1]] && (buf[0] = tested[i[0]][i[1]]))
+				if (get_opts(&i[2], valid, buf, *stored))
 					return (buf[0]);
-		ft_strclr(tested[i]);
+		ft_strclr(tested[i[0]]);
 	}
 	return (0);
 }
