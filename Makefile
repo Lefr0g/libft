@@ -115,7 +115,7 @@ XT_SRCS = get_next_line.c \
 		  ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c \
 		  ft_find_double_str.c ft_parse_options.c \
 		  ft_strarray_dup.c ft_strarray_del.c \
-		  ft_lstdetach.c ft_lstinsertright.c ft_lstsort.c
+		  ft_lstdetach.c ft_lstinsertright.c ft_lstsort.c ft_lstflip.c
 
 XT_SOURCES = $(addprefix $(XT_DIR), $(XT_SRCS))
 

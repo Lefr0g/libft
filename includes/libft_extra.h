@@ -97,6 +97,7 @@ t_list				*ft_lstdetach(t_list *elem);
 t_list				*ft_lstinsertright(t_list *elem, t_list *pos);
 int					ft_lstsort(t_list **alst, int content_offset,
 		int (*compare)(void*, void*));
+void				ft_lstflip(t_list **alst);
 
 
 /*
