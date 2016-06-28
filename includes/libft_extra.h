@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:19:12 by amulin            #+#    #+#             */
-/*   Updated: 2016/06/09 18:54:27 by amulin           ###   ########.fr       */
+/*   Updated: 2016/06/28 16:37:53 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 int					get_next_line(int const fd, char **line);
 char				ft_parse_options(char **tested, char **valid,
 		char ***checked);
+char				ft_parse_options_keep_doubles(char **tested,
+		char **valid, char ***checked);
 
 
 /*

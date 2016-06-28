@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/06/09 18:54:51 by amulin           ###   ########.fr        #
+#    Updated: 2016/06/28 16:41:47 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,6 +114,7 @@ XT_SRCS = get_next_line.c \
 		  ft_puthex.c ft_puthex_ull.c ft_putoctal.c ft_putbin.c \
 		  ft_hexchartoi.c ft_hexbytetoi.c ft_ishexa.c \
 		  ft_find_double_str.c ft_parse_options.c \
+		  ft_parse_options_keep_doubles.c \
 		  ft_strarray_dup.c ft_strarray_del.c \
 		  ft_lstdetach.c ft_lstinsertright.c ft_lstsort.c ft_lstflip.c
 
