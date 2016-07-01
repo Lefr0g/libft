@@ -19,6 +19,7 @@
 # elif __linux__
 #  define SYS_OS "linux"
 #  define NULL_PTR "(nil)"
+#  include <stdint.h>
 # else
 #  define SYS_OS "unknown"
 #  define NULL_PTR "0x0"

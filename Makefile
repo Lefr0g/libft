@@ -25,7 +25,7 @@
 
 OS_NAME = $(shell uname -s)
 ifeq ($(OS_NAME),Linux)
-	CC = gcc
+	CC = clang
 endif
 ifeq ($(OS_NAME),Darwin)
 	CC = clang
