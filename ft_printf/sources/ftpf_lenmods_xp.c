@@ -43,7 +43,7 @@ void	ftpf_manage_lenmod_xp_sub(va_list *ap, t_ftpf_env *e, char **itoa_ret)
 {
 	if (ft_strchr("xX", e->conversion) && !e->mod[0])
 	{
-		if (!(e->param->u = (unsigned int)va_arg(*ap, unsigned int*)))
+		if (!(e->param->u = (unsigned long)va_arg(*ap, unsigned long*)))
 			e->isnull = 1;
 		*itoa_ret = ft_itoa_ull(e->param->u, 16);
 	}

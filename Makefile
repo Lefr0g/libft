@@ -25,7 +25,7 @@
 
 OS_NAME = $(shell uname -s)
 ifeq ($(OS_NAME),Linux)
-	CC = clang
+	CC = gcc
 endif
 ifeq ($(OS_NAME),Darwin)
 	CC = clang
@@ -63,6 +63,10 @@ UIINFO = $(UIALIGN)[\033[36m i \033[0m]
 ############################################################### COMMON VARIABLES
 
 FLAGS = -Wall -Werror -Wextra
+
+ifeq ($(CC),gcc)
+	FLAGS += -std=c99
+endif
 
 INCLUDIR = includes/
 
