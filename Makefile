@@ -6,7 +6,7 @@
 #    By: amulin <amulin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/03 16:56:12 by amulin            #+#    #+#              #
-#    Updated: 2016/06/28 16:41:47 by amulin           ###   ########.fr        #
+#    Updated: 2016/07/26 18:30:51 by amulin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,8 @@ XT_SRCS = get_next_line.c \
 		  ft_find_double_str.c ft_parse_options.c \
 		  ft_parse_options_keep_doubles.c \
 		  ft_strarray_dup.c ft_strarray_del.c \
-		  ft_lstdetach.c ft_lstinsertright.c ft_lstsort.c ft_lstflip.c
+		  ft_lstdetach.c ft_lstinsertright.c ft_lstsort.c ft_lstflip.c \
+		  ft_humanize_size.c ft_nbrlen.c
 
 XT_SOURCES = $(addprefix $(XT_DIR), $(XT_SRCS))
 

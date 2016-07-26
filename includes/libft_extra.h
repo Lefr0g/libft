@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 18:19:12 by amulin            #+#    #+#             */
-/*   Updated: 2016/06/28 16:37:53 by amulin           ###   ########.fr       */
+/*   Updated: 2016/07/26 19:13:21 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ char				ft_parse_options(char **tested, char **valid,
 		char ***checked);
 char				ft_parse_options_keep_doubles(char **tested,
 		char **valid, char ***checked);
+char				*ft_humanize_size(off_t size);
 
+/*
+**	Performance oriented
+*/
+int					ft_nbrlen(int nbr);
 
 /*
 **	Simple math & variable value comparison
@@ -43,14 +48,12 @@ long long			ft_abs_ll(long long i);
 int					ft_tabmax(int *tab, int siz);
 int					ft_tabmin(int *tab, int siz);
 
-
 /*
 **	Binary
 **	(made for ft_printf)
 */
 unsigned int		ft_endian_swap(unsigned int input);
 int					ft_putbin(unsigned long long n, int sizeof_type);
-
 
 /*
 **	Hexa
@@ -60,7 +63,6 @@ int					ft_ishexa(int c);
 int					ft_hexchartoi(char c);
 int					ft_hexbytetoi(char *hexbyte);
 void				ft_puthex(unsigned int n, char *mode);
-
 
 /*
 **	Unicode / UTF-8
@@ -91,7 +93,6 @@ void				ft_putnbr_ll(long long int n);
 */
 void				ft_print_memory(const void *addr, size_t size);
 
-
 /*
 **	Lists
 */
@@ -100,7 +101,6 @@ t_list				*ft_lstinsertright(t_list *elem, t_list *pos);
 int					ft_lstsort(t_list **alst, int content_offset,
 		int (*compare)(void*, void*));
 void				ft_lstflip(t_list **alst);
-
 
 /*
 **	Str arrays
