@@ -39,7 +39,7 @@ UIINFO = $(UIALIGN)[\033[32m i \033[0m]
 FLAGS = -Wall -Werror -Wextra
 
 ifeq ($(CC),gcc)
-	FLAGS += -std=c99
+	FLAGS += -std=gnu99
 endif
 
 PRINTHDRS = ft_printf.h

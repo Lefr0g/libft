@@ -109,7 +109,7 @@ char		*ft_humanize_size(off_t size)
 			transform_size_into_str(size, divider, str, i);
 			return (str);
 		}
-		divider = divider >= 1 ? (divider /= 1024) : divider;
+		divider >= 1 ? (divider /= 1024) : (divider = divider);
 		i++;
 	}
 	ft_strcpy(str, "0B");
