@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/28 16:40:47 by amulin            #+#    #+#             */
-/*   Updated: 2016/06/28 16:40:50 by amulin           ###   ########.fr       */
+/*   Updated: 2016/07/28 19:45:24 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,15 @@ static int	allocate_storage(char **tested, char ***stored)
 ** This function ensures options given as program arguments are supported,
 ** and retrieves supported options from the command line argument list.
 ** -
-** 'tested' is supposed to be main's argv, ideally a copy of it,  but it can
-** be any string table ending with a NULL pointer. However the first string
+** 'tstd' (tested) is supposed to be main's argv, ideally a copy of it,  but it
+** can be any string table ending with a NULL pointer. However the first string
 ** of the array won't be inspected.
 ** 'valid' is the string table of supported options, it must be terminated by
 ** an empty string.
 ** 'stored' is a pointer to an unallocated string table that will store the
 ** options validated by the function.
 ** -
-** The function ignores 'tested' strings unless they begin with a '-'
+** The function ignores 'tstd' strings unless they begin with a '-'
 ** Characters following a '-' are treated individually
 ** Characters following a '--' are treated as a single string
 ** Upon reading '--\0' the function stops.
@@ -99,38 +99,38 @@ static int	allocate_storage(char **tested, char ***stored)
 ** -
 ** -
 ** ****************************************************************************
-** ATTENTION : the function also removes the valid options from the 'tested'
+** ATTENTION : the function also removes the valid options from the 'tstd'
 ** string array. This will leave "holes" in the input array. Make sure to
 ** process this array correctly after calling ft_parse_options().
 ** ****************************************************************************
 */
 
-char		ft_parse_options_keep_doubles(char **tested, char **valid,
+char		ft_parse_options_keep_doubles(char **tstd, char **valid,
 		char ***stored)
 {
 	int		i[3];
 	char	buf[2];
 
 	i[2] = 0;
-	if (!(i[0] = 0) && allocate_storage(tested, stored))
+	if (!(i[0] = 0) && allocate_storage(tstd, stored))
 		return ('!');
 	ft_bzero(buf, 2);
-	while (tested[++i[0]] && (i[2] = (tested[i[0]][0] == '-' ? i[2] : -1)) >= 0)
+	while (tstd[++i[0]] && (i[2] = (tstd[i[0]][0] == '-' ? i[2] : -1)) >= 0)
 	{
-		if (ft_strlen(tested[i[0]]) == 1)
+		if (ft_strlen(tstd[i[0]]) == 1)
 			return (0);
 		i[1] = 0;
-		if (tested[i[0]][0] && tested[i[0]][1] == '-'
-				&& ((i[2] = !tested[i[0]][2] ? -1 : i[2]) >= 0 || 1))
+		if (tstd[i[0]][0] && tstd[i[0]][1] == '-' && ft_strlen(tstd[i[0]]) > 3
+				&& ((i[2] = !tstd[i[0]][2] ? -1 : i[2]) >= 0 || 1))
 		{
-			if (get_opts(&i[2], valid, &tested[i[0]][2], *stored) && i[2] >= 0)
+			if (get_opts(&i[2], valid, &tstd[i[0]][2], *stored) && i[2] >= 0)
 				return ('-');
 		}
-		else if (tested[i[0]][1])
-			while (tested[i[0]][++i[1]] && (buf[0] = tested[i[0]][i[1]]))
+		else if (tstd[i[0]][1])
+			while (tstd[i[0]][++i[1]] && (buf[0] = tstd[i[0]][i[1]]))
 				if (get_opts(&i[2], valid, buf, *stored))
 					return (buf[0]);
-		ft_strclr(tested[i[0]]);
+		ft_strclr(tstd[i[0]]);
 	}
 	return (0);
 }
