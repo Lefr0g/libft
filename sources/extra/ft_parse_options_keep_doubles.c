@@ -29,19 +29,6 @@ static int	get_opts(int *i, char **valid, char *tested, char **stored)
 	int	j;
 	int	match;
 
-/*
-	if (*i < 0)
-	{
-		ft_printf("get_opts early exit\n");
-		return (1);
-	}
-*/
-	ft_printf("CHECK get_opts\n");
-	if (tested[0] == '-' && tested[1] == '-' && ft_strlen(tested) == 3)
-	{
-		ft_printf("CHECK get_opts too short\n");
-		return (1);
-	}
 	j = -1;
 	match = 0;
 	while (valid[++j][0])
