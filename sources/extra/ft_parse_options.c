@@ -68,6 +68,21 @@ static int	allocate_storage(char **tested, char ***stored)
 }
 
 /*
+** Here we manage the long format options (starting with "--")
+** If the tested string is simply a double dash, the i flag is set to -1 so
+** that the calling function will cease parsing options.
+** Otherwise, the string is passed to get_opts() to check and retrieve option.
+*/
+static int	treat_double_dash(int *i, char *tested, char **valid, char ***stored)
+{
+	*i = !tested[2] ? -1 : *i;
+	if ((ft_strlen(tested) <= 3 && ft_strcmp(tested, "--")) 
+			|| (*i >= 0 && get_opts(i, valid, &tested[2], *stored)))
+		return (1);
+	return (0);
+}
+
+/*
 ** This function ensures options given as program arguments are supported,
 ** and retrieves supported options from the command line argument list.
 ** -
@@ -115,10 +130,9 @@ char		ft_parse_options(char **tstd, char **valid, char ***stored)
 		if (ft_strlen(tstd[i[0]]) == 1)
 			return (0);
 		i[1] = 0;
-		if (tstd[i[0]][0] && tstd[i[0]][1] == '-' && ft_strlen(tstd[i[0]]) > 3
-				&& ((i[2] = !tstd[i[0]][2] ? -1 : i[2]) >= 0 || 1))
+		if (tstd[i[0]][0] && tstd[i[0]][1] == '-')
 		{
-			if (get_opts(&i[2], valid, &tstd[i[0]][2], *stored) && i[2] >= 0)
+			if (treat_double_dash(&i[2], tstd[i[0]], valid, stored))
 				return ('-');
 		}
 		else if (tstd[i[0]][1])

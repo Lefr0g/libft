@@ -29,6 +29,19 @@ static int	get_opts(int *i, char **valid, char *tested, char **stored)
 	int	j;
 	int	match;
 
+/*
+	if (*i < 0)
+	{
+		ft_printf("get_opts early exit\n");
+		return (1);
+	}
+*/
+	ft_printf("CHECK get_opts\n");
+	if (tested[0] == '-' && tested[1] == '-' && ft_strlen(tested) == 3)
+	{
+		ft_printf("CHECK get_opts too short\n");
+		return (1);
+	}
 	j = -1;
 	match = 0;
 	while (valid[++j][0])
@@ -67,6 +80,21 @@ static int	allocate_storage(char **tested, char ***stored)
 	}
 	*stored = (char**)ft_memalloc(sizeof(char*) * (j + 1));
 	if (!(*stored))
+		return (1);
+	return (0);
+}
+
+/*
+** Here we manage the long format options (starting with "--")
+** If the tested string is simply a double dash, the i flag is set to -1 so
+** that the calling function will cease parsing options.
+** Otherwise, the string is passed to get_opts() to check and retrieve option.
+*/
+static int	treat_double_dash(int *i, char *tested, char **valid, char ***stored)
+{
+	*i = !tested[2] ? -1 : *i;
+	if ((ft_strlen(tested) <= 3 && ft_strcmp(tested, "--")) 
+			|| (*i >= 0 && get_opts(i, valid, &tested[2], *stored)))
 		return (1);
 	return (0);
 }
@@ -120,10 +148,9 @@ char		ft_parse_options_keep_doubles(char **tstd, char **valid,
 		if (ft_strlen(tstd[i[0]]) == 1)
 			return (0);
 		i[1] = 0;
-		if (tstd[i[0]][0] && tstd[i[0]][1] == '-' && ft_strlen(tstd[i[0]]) > 3
-				&& ((i[2] = !tstd[i[0]][2] ? -1 : i[2]) >= 0 || 1))
+		if (tstd[i[0]][0] && tstd[i[0]][1] == '-')
 		{
-			if (get_opts(&i[2], valid, &tstd[i[0]][2], *stored) && i[2] >= 0)
+			if (treat_double_dash(&i[2], tstd[i[0]], valid, stored))
 				return ('-');
 		}
 		else if (tstd[i[0]][1])
