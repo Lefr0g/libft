@@ -6,7 +6,7 @@
 /*   By: amulin <amulin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/11 13:11:07 by amulin            #+#    #+#             */
-/*   Updated: 2016/07/28 19:47:09 by amulin           ###   ########.fr       */
+/*   Updated: 2016/09/07 18:45:47 by amulin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,12 @@ static int	allocate_storage(char **tested, char ***stored)
 ** that the calling function will cease parsing options.
 ** Otherwise, the string is passed to get_opts() to check and retrieve option.
 */
-static int	treat_double_dash(int *i, char *tested, char **valid, char ***stored)
+
+static int	treat_double_dash(int *i, char *tstd, char **valid, char ***stored)
 {
-	*i = !tested[2] ? -1 : *i;
-	if ((ft_strlen(tested) <= 3 && ft_strcmp(tested, "--")) 
-			|| (*i >= 0 && get_opts(i, valid, &tested[2], *stored)))
+	*i = !tstd[2] ? -1 : *i;
+	if ((ft_strlen(tstd) <= 3 && ft_strcmp(tstd, "--"))
+			|| (*i >= 0 && get_opts(i, valid, &tstd[2], *stored)))
 		return (1);
 	return (0);
 }
