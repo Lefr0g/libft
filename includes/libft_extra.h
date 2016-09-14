@@ -21,6 +21,15 @@
 # include "errmgmt.h"
 # include "libft.h"
 
+# define ANSI_FG_RED "\033[31m"
+# define ANSI_FG_GREEN "\033[32m"
+# define ANSI_FG_YELLOW "\033[33m"
+# define ANSI_FG_BLUE "\033[34m"
+# define ANSI_FG_MAGENTA "\033[35m"
+# define ANSI_FG_CYAN "\033[36m"
+# define ANSI_UNDERLINED "\033[4m"
+# define ANSI_RESET "\033[0m"
+
 /*
 **	Convenience algorithms
 */
