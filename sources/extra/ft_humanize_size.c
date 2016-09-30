@@ -96,7 +96,7 @@ static void	transform_size_into_str(off_t size, long divider,
 char		*ft_humanize_size(off_t size)
 {
 	char		*str;
-	long		divider;
+	long long	divider;
 	int			i;
 
 	i = 0;
